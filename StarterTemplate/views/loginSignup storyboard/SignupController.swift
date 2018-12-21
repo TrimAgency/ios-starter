@@ -2,12 +2,15 @@
 import UIKit
 
 class SignupController: UIViewController {
-
+    // view props
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
     @IBAction func signupBtnPress(_ sender: UIButton) {
     }
+    
+    // internal props
+    weak var coordinator: MainCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()

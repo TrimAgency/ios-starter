@@ -2,18 +2,30 @@
 import Foundation
 import UIKit
 
-class NavigatorCordinator {
-    
-    private var navigationController: UINavigationController?
+class MainCoordinator: Coordinator {
+    var childCoordinators = [Coordinator]()
+    var navigationController: UINavigationController
     
     init(navController: UINavigationController) {
         navigationController = navController
     }
     
-    func navigate(to destination: Destination) {
-        let viewController = destination.controller
-        navigationController?.pushViewController(viewController,
-                                                 animated: true)
+    func start() {
+        let initialVC = UIStoryboard.viewController
+        initialVC.coordinator = self
+        navigationController.pushViewController(initialVC, animated: false)
+    }
+    
+    func login() {
+        let vc = UIStoryboard.loginController
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func signup() {
+        let vc = UIStoryboard.signupController
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
     }
 }
 

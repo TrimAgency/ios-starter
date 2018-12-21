@@ -12,6 +12,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
     }
     
     //internal props
+    weak var coordinator: MainCoordinator?
     
     //services
     let alertService = AlertService()
