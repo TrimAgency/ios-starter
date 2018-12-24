@@ -37,7 +37,7 @@ extension LoginController {
         textField.layer.borderColor = UIColor.black.cgColor
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         textField.layer.borderWidth = 1.0
         textField.layer.borderColor = UIColor.lightGray.cgColor
         
