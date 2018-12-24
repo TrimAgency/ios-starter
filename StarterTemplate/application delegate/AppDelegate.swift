@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  StarterTemplate
-//
-//  Created by Dominique Miller on 8/18/18.
-//  Copyright © 2018 Trim Agency. All rights reserved.
-//
-
 import UIKit
 import CoreData
 
