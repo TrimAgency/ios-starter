@@ -24,3 +24,7 @@ class UserService: MainRequestService {
     }
 }
 
+extension UserService: LoginService {
+    
+}
+
