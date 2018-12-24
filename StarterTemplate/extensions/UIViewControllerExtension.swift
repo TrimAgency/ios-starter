@@ -26,4 +26,20 @@ extension UIViewController {
             spinner.removeFromSuperview()
         }
     }
+    
+    func presentError(_ error: Error) {
+        let alertController = UIAlertController(title: "Error",
+                                                message: error.localizedDescription,
+                                                preferredStyle: .alert)
+        alertController.addAction(.init(title: "OK", style: .default))
+        self.present(alertController, animated: true)
+    }
+    
+    func presentMessage(title: String, message: String) {
+        let alertController = UIAlertController(title: title,
+                                                message: message,
+                                                preferredStyle: .alert)
+        alertController.addAction(.init(title: "OK", style: .default))
+        self.present(alertController, animated: true)
+    }
 }
