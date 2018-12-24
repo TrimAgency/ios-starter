@@ -1,55 +1,18 @@
 import Foundation
 import Alamofire
 import AlamofireObjectMapper
+import ObjectMapper
+import RxSwift
 
-class UserService {
+class UserService: MainRequestService {
     
-    static func login(with user:User,
-                      completion: @escaping (_ user: User) -> Void,
-                      errorCompletion: @escaping (_ error: Any) -> Void) {
-        
-        APIClient.session
-            .request(UserRouter.login(user))
-            .validate()
-            .responseObject(keyPath: "user") { (response: DataResponse<User>) in
-                
-                switch response.result {
-                case .success(let user):
-                    if let jwt = user.jwt {
-                        saveJWT(for: jwt)
-                    }
-                    completion(user)
-                case .failure(let error):
-                    if error is AFError {
-                        print(error)
-                        errorCompletion(error)
-                    }
-                }
-        }
+    static func login(with user: User) -> Observable<User> {
+        return newRequest(UserRouter.login(user), keypath: "user")
     }
     
-    static func signUp(with user:User,
-                       completion: @escaping (_ user: User) -> Void,
-                       errorCompletion: @escaping (_ error: Any) -> Void) {
+    static func signUp(with user:User) -> Observable<User> {
+        return newRequest(UserRouter.signup(user), keypath: "user")
         
-        APIClient.session
-            .request(UserRouter.signUp(user))
-            .validate()
-            .responseObject(keyPath: "user") { (response: DataResponse<User>) in
-                
-                switch response.result {
-                case .success(let user):
-                    if let jwt = user.jwt {
-                        saveJWT(for: jwt)
-                    }
-                    completion(user)
-                case .failure(let error):
-                    if error is AFError {
-                        print(error)
-                        errorCompletion(error)
-                    }
-                }
-        }
     }
     
     static func saveJWT(for jwt: String) {
@@ -59,6 +22,5 @@ class UserService {
     static func logout() {
         KeychainService.clearValues()
     }
-    
 }
 

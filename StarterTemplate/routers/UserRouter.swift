@@ -2,14 +2,14 @@ import Foundation
 import Alamofire
 
 enum UserRouter: URLRequestConvertible {
-    case login(User), signUp(User)
+    case login(User), signup(User)
     
     // MARK: HTTPMethod
     private var method: HTTPMethod {
         switch self {
         case .login:
             return .post
-        case .signUp:
+        case .signup:
             return .post
         }
     }
@@ -19,7 +19,7 @@ enum UserRouter: URLRequestConvertible {
         switch self {
         case .login:
             return "/api/v1/login"
-        case .signUp:
+        case .signup:
             return "/api/v1/sign_up"
         }
     }
@@ -29,7 +29,7 @@ enum UserRouter: URLRequestConvertible {
         switch self {
         case .login(let params):
             return [ "user" : params.toJSON() ]
-        case .signUp(let params):
+        case .signup(let params):
             return [ "user" : params.toJSON() ]
         }
     }
