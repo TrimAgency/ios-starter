@@ -10,6 +10,11 @@
 		0415E02221D0719A00529FA2 /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415E02121D0719A00529FA2 /* ForgotPasswordController.swift */; };
 		0415E02621D0735A00529FA2 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415E02521D0735A00529FA2 /* ApiError.swift */; };
 		0415E02821D0791D00529FA2 /* MainRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415E02721D0791D00529FA2 /* MainRequestService.swift */; };
+		0415E02A21D1631100529FA2 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415E02921D1631100529FA2 /* LoginService.swift */; };
+		0415E02D21D16B2000529FA2 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415E02C21D16B2000529FA2 /* LoginViewModel.swift */; };
+		0415E03021D16CC500529FA2 /* PasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415E02F21D16CC500529FA2 /* PasswordViewModel.swift */; };
+		0415E03321D16CE000529FA2 /* EmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415E03221D16CE000529FA2 /* EmailViewModel.swift */; };
+		0415E03521D16D1600529FA2 /* ValidationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415E03421D16D1600529FA2 /* ValidationViewModel.swift */; };
 		04318BF14281A0521EF5C369 /* Pods_StarterTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E26B1125D2E2151E2592FC3 /* Pods_StarterTemplate.framework */; };
 		0441706E21CD84EE001504D6 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0441706D21CD84EE001504D6 /* Coordinator.swift */; };
 		0441707021CD86CD001504D6 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0441706F21CD86CD001504D6 /* UIStoryboard.swift */; };
@@ -26,7 +31,6 @@
 		049E91452128AF61007D63F2 /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E91442128AF61007D63F2 /* UserRouter.swift */; };
 		049E91492128B243007D63F2 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E91482128B243007D63F2 /* UserService.swift */; };
 		049E914C2128B5FF007D63F2 /* UIFontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E914B2128B5FF007D63F2 /* UIFontExtensions.swift */; };
-		049E914E2128B7A5007D63F2 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E914D2128B7A5007D63F2 /* AlertService.swift */; };
 		049E91502128B81A007D63F2 /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E914F2128B81A007D63F2 /* Validators.swift */; };
 		049E91522128B8E2007D63F2 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E91512128B8E2007D63F2 /* UIViewControllerExtension.swift */; };
 		049E91542128B94F007D63F2 /* UIScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E91532128B94F007D63F2 /* UIScrollViewExtension.swift */; };
@@ -60,6 +64,11 @@
 		0415E02121D0719A00529FA2 /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
 		0415E02521D0735A00529FA2 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		0415E02721D0791D00529FA2 /* MainRequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRequestService.swift; sourceTree = "<group>"; };
+		0415E02921D1631100529FA2 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		0415E02C21D16B2000529FA2 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		0415E02F21D16CC500529FA2 /* PasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewModel.swift; sourceTree = "<group>"; };
+		0415E03221D16CE000529FA2 /* EmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewModel.swift; sourceTree = "<group>"; };
+		0415E03421D16D1600529FA2 /* ValidationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationViewModel.swift; sourceTree = "<group>"; };
 		041B154821CF0BD9000C2FD6 /* StarterTemplateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarterTemplateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		041B154C21CF0BD9000C2FD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0441706D21CD84EE001504D6 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -79,7 +88,6 @@
 		049E91442128AF61007D63F2 /* UserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
 		049E91482128B243007D63F2 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		049E914B2128B5FF007D63F2 /* UIFontExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtensions.swift; sourceTree = "<group>"; };
-		049E914D2128B7A5007D63F2 /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 		049E914F2128B81A007D63F2 /* Validators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
 		049E91512128B8E2007D63F2 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		049E91532128B94F007D63F2 /* UIScrollViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtension.swift; sourceTree = "<group>"; };
@@ -129,6 +137,7 @@
 		0415E01E21D0715D00529FA2 /* login view controller */ = {
 			isa = PBXGroup;
 			children = (
+				0415E02B21D16B0B00529FA2 /* loginViewModel */,
 				04AF95E92144A4CD005C1E58 /* LoginController.swift */,
 			);
 			path = "login view controller";
@@ -164,6 +173,23 @@
 				049E912D2128A682007D63F2 /* Assets.xcassets */,
 			);
 			path = assets;
+			sourceTree = "<group>";
+		};
+		0415E02B21D16B0B00529FA2 /* loginViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0415E02C21D16B2000529FA2 /* LoginViewModel.swift */,
+			);
+			path = loginViewModel;
+			sourceTree = "<group>";
+		};
+		0415E02E21D16CB300529FA2 /* view models */ = {
+			isa = PBXGroup;
+			children = (
+				0415E02F21D16CC500529FA2 /* PasswordViewModel.swift */,
+				0415E03221D16CE000529FA2 /* EmailViewModel.swift */,
+			);
+			path = "view models";
 			sourceTree = "<group>";
 		};
 		041B154921CF0BD9000C2FD6 /* StarterTemplateTests */ = {
@@ -210,6 +236,8 @@
 			isa = PBXGroup;
 			children = (
 				0441706D21CD84EE001504D6 /* Coordinator.swift */,
+				0415E02921D1631100529FA2 /* LoginService.swift */,
+				0415E03421D16D1600529FA2 /* ValidationViewModel.swift */,
 			);
 			path = protocols;
 			sourceTree = "<group>";
@@ -237,6 +265,7 @@
 		049E91222128A681007D63F2 /* StarterTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				0415E02E21D16CB300529FA2 /* view models */,
 				0415E02421D0724800529FA2 /* assets */,
 				0415E02321D0722500529FA2 /* application delegate */,
 				0441706C21CD84D2001504D6 /* protocols */,
@@ -272,7 +301,6 @@
 				049E913C2128AD88007D63F2 /* APICLient.swift */,
 				049E913E2128ADB5007D63F2 /* AuthAdapter.swift */,
 				049E91482128B243007D63F2 /* UserService.swift */,
-				049E914D2128B7A5007D63F2 /* AlertService.swift */,
 				049E914F2128B81A007D63F2 /* Validators.swift */,
 				0415E02721D0791D00529FA2 /* MainRequestService.swift */,
 			);
@@ -665,8 +693,10 @@
 				049E913B2128AC23007D63F2 /* KeyChainService.swift in Sources */,
 				049E912C2128A681007D63F2 /* StarterTemplate.xcdatamodeld in Sources */,
 				049E91452128AF61007D63F2 /* UserRouter.swift in Sources */,
+				0415E03521D16D1600529FA2 /* ValidationViewModel.swift in Sources */,
 				049E914C2128B5FF007D63F2 /* UIFontExtensions.swift in Sources */,
 				049E915A2128BA6F007D63F2 /* UIColorExtension.swift in Sources */,
+				0415E03021D16CC500529FA2 /* PasswordViewModel.swift in Sources */,
 				04A0505D21CD41BD00D44CCC /* UITableViewCell.swift in Sources */,
 				049E91542128B94F007D63F2 /* UIScrollViewExtension.swift in Sources */,
 				04AF95EA2144A4CD005C1E58 /* LoginController.swift in Sources */,
@@ -677,12 +707,14 @@
 				04EA82272130DA740011755C /* CALayerExtension.swift in Sources */,
 				049E91562128B9B2007D63F2 /* UITextFieldExtension.swift in Sources */,
 				049E913F2128ADB5007D63F2 /* AuthAdapter.swift in Sources */,
+				0415E03321D16CE000529FA2 /* EmailViewModel.swift in Sources */,
+				0415E02D21D16B2000529FA2 /* LoginViewModel.swift in Sources */,
 				0441706E21CD84EE001504D6 /* Coordinator.swift in Sources */,
 				0415E02221D0719A00529FA2 /* ForgotPasswordController.swift in Sources */,
 				049E91422128AE57007D63F2 /* User.swift in Sources */,
+				0415E02A21D1631100529FA2 /* LoginService.swift in Sources */,
 				049E91582128BA0E007D63F2 /* UserDefaultsExtension.swift in Sources */,
 				0415E02621D0735A00529FA2 /* ApiError.swift in Sources */,
-				049E914E2128B7A5007D63F2 /* AlertService.swift in Sources */,
 				049E91502128B81A007D63F2 /* Validators.swift in Sources */,
 				04A0505921CD397E00D44CCC /* Configuration.swift in Sources */,
 				049E91522128B8E2007D63F2 /* UIViewControllerExtension.swift in Sources */,
