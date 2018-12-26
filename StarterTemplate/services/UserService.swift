@@ -6,20 +6,20 @@ import RxSwift
 
 class UserService: MainRequestService {
     
-    static func login(with user: User) -> Observable<User> {
-        return newRequest(UserRouter.login(user), keypath: "user")
+    func login(with user: User) -> Observable<LoginResponse> {
+        return newRequestWithoutKeyPath(route: UserRouter.login(user))
     }
     
-    static func signUp(with user:User) -> Observable<User> {
-        return newRequest(UserRouter.signup(user), keypath: "user")
-        
+    func signUp(with user:User) -> Observable<User> {
+        return newRequestWithKeyPath(route: UserRouter.signup(user),
+                                     keypath: "user")
     }
     
-    static func saveJWT(for jwt: String) {
+    func saveJWT(for jwt: String) {
         KeychainService.setUserJWT(jwt: jwt)
     }
     
-    static func logout() {
+    func logout() {
         KeychainService.clearValues()
     }
 }

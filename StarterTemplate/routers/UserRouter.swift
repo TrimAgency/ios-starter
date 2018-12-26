@@ -18,9 +18,9 @@ enum UserRouter: URLRequestConvertible {
     private var path: String {
         switch self {
         case .login:
-            return "/api/v1/login"
+            return "/api/v1/user_token"
         case .signup:
-            return "/api/v1/sign_up"
+            return "/api/v1/users"
         }
     }
     
@@ -28,7 +28,7 @@ enum UserRouter: URLRequestConvertible {
     private var params: Parameters? {
         switch self {
         case .login(let params):
-            return [ "user" : params.toJSON() ]
+            return [ "auth" : params.toJSON() ]
         case .signup(let params):
             return [ "user" : params.toJSON() ]
         }

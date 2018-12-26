@@ -1,7 +1,7 @@
 import ObjectMapper
 import Foundation
 
-class User: Mappable, Codable {
+class User: Mappable {
     
     var id: Int?
     var email: String?

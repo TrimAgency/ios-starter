@@ -3,5 +3,5 @@ import Foundation
 import RxSwift
 
 protocol LoginService {
-    static func login(with user: User) -> Observable<User>
+    func login(with user: User) -> Observable<LoginResponse>
 }
