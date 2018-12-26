@@ -5,7 +5,7 @@ import RxCocoa
 
 struct EmailViewModel : ValidationViewModel{
     
-    var errorMessage: String = "Please enter a valid Email Id"
+    var errorMessage: String = "Please enter a valid Email"
     
     var data = BehaviorRelay<String>(value: "")
     var errorValue = BehaviorRelay<String>(value: "")
