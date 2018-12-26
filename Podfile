@@ -12,7 +12,7 @@ target 'StarterTemplate' do
   pod 'RxSwift'
   pod 'RxCocoa'
   
-  target 'StarterTemplateTests' do
+  target 'UnitTests' do
     inherit! :search_paths
       
     pod 'RxTest'
