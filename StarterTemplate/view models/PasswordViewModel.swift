@@ -4,14 +4,14 @@ import RxSwift
 import RxCocoa
 
 struct PasswordViewModel: ValidationViewModel {
-    var errorMessage: String = "Please enter a valid Password"
+    var errorMessage: String = "Password must be at leat 8 characters long"
     
     var data = BehaviorRelay<String>(value: "")
     var errorValue = BehaviorRelay<String>(value: "")
     
     func validateCredentials() -> Bool {
         
-        guard validateLength(text: data.value, size: (6,15)) else {
+        guard validateLength(text: data.value, size: (8,25)) else {
             errorValue.accept(errorMessage)
             return false;
         }
