@@ -13,4 +13,14 @@ extension UIButton {
         
         self.setAttributedTitle(attributedString, for: .normal)
     }
+    
+    func disabled() {
+        isEnabled = false
+        layer.backgroundColor = UIColor.gray.cgColor
+    }
+    
+    func enabled() {
+        isEnabled = true
+        layer.backgroundColor = UIColor.green.cgColor
+    }
 }
