@@ -16,9 +16,9 @@ struct LoginViewModel {
     let errorMsg = BehaviorRelay<String>(value: "")
     let isFormValid = BehaviorRelay<Bool>(value: false)
     
-    private let userService: UserService
+    private let userService: LoginService
     
-    init(userService: UserService) {
+    init(userService: LoginService) {
         self.userService = userService
     }
     
@@ -44,6 +44,7 @@ struct LoginViewModel {
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { response in
                 if let jwt = response.jwt {
+                    self.isLoading.accept(false)
                     self.success.accept(true)
                     self.userService.saveJWT(for: jwt)
                 }

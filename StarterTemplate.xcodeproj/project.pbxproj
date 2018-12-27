@@ -19,6 +19,7 @@
 		04318BF14281A0521EF5C369 /* Pods_StarterTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E26B1125D2E2151E2592FC3 /* Pods_StarterTemplate.framework */; };
 		043A054821D4111E00197B11 /* EmailModelViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A054721D4111E00197B11 /* EmailModelViewTests.swift */; };
 		043A054A21D4135E00197B11 /* PasswordViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A054921D4135E00197B11 /* PasswordViewModelTests.swift */; };
+		043A054D21D41B7000197B11 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A054C21D41B7000197B11 /* LoginViewModelTests.swift */; };
 		0441706E21CD84EE001504D6 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0441706D21CD84EE001504D6 /* Coordinator.swift */; };
 		0441707021CD86CD001504D6 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0441706F21CD86CD001504D6 /* UIStoryboard.swift */; };
 		049E91242128A681007D63F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E91232128A681007D63F2 /* AppDelegate.swift */; };
@@ -77,6 +78,7 @@
 		043A053F21D410F700197B11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		043A054721D4111E00197B11 /* EmailModelViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailModelViewTests.swift; sourceTree = "<group>"; };
 		043A054921D4135E00197B11 /* PasswordViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewModelTests.swift; sourceTree = "<group>"; };
+		043A054C21D41B7000197B11 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
 		0441706D21CD84EE001504D6 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		0441706F21CD86CD001504D6 /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
 		049E91202128A681007D63F2 /* StarterTemplate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarterTemplate.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -224,6 +226,7 @@
 			children = (
 				043A054721D4111E00197B11 /* EmailModelViewTests.swift */,
 				043A054921D4135E00197B11 /* PasswordViewModelTests.swift */,
+				043A054C21D41B7000197B11 /* LoginViewModelTests.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -679,6 +682,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				043A054D21D41B7000197B11 /* LoginViewModelTests.swift in Sources */,
 				043A054A21D4135E00197B11 /* PasswordViewModelTests.swift in Sources */,
 				043A054821D4111E00197B11 /* EmailModelViewTests.swift in Sources */,
 			);
