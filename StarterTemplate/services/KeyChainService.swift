@@ -3,38 +3,38 @@ import KeychainSwift
 
 class KeychainService {
     
-    static let keychain = KeychainSwift()
+    let keychain = KeychainSwift()
     
-    static func setUserJWT(jwt: String) {
+    func setUserJWT(jwt: String) {
         keychain.set(jwt, forKey: "jwt")
     }
     
-    static func getUserJWT() -> String? {
+    func getUserJWT() -> String? {
         return keychain.get("jwt")
     }
     
-    static func setUserEmail(email: String) {
+    func setUserEmail(email: String) {
         keychain.set(email, forKey: "email")
     }
     
-    static func getUserEmail() -> String? {
+    func getUserEmail() -> String? {
         return keychain.get("email")
     }
     
-    static func getUserPassword() -> String? {
+    func getUserPassword() -> String? {
         return keychain.get("password")
     }
     
-    static func setUserPassword(password: String) {
+    func setUserPassword(password: String) {
         keychain.set(password, forKey: "password")
     }
     
     
-    static func setRememberTrue() {
+    func setRememberTrue() {
         keychain.set(true, forKey: "remember")
     }
     
-    static func isRemember() -> Bool {
+    func isRemember() -> Bool {
         if let remember =  keychain.getBool("remember") {
             return remember
         }
@@ -42,8 +42,12 @@ class KeychainService {
         return false
     }
     
-    static func clearValues() {
+    func clearValues() {
         keychain.clear()
     }
+}
+
+extension KeychainService: UserInfoService {
+    
 }
 
