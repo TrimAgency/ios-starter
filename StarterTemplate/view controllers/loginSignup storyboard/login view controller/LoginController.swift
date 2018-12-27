@@ -15,7 +15,8 @@ class LoginController: UIViewController, UITextFieldDelegate {
     //internal props
     weak var coordinator: MainCoordinator?
     let disposeBag = DisposeBag()
-    let viewModel = LoginViewModel(userService: UserService())
+    let viewModel = LoginViewModel(userService: UserService(),
+                                   userInfoService: KeychainService())
     
     override func viewDidLoad() {
         super.viewDidLoad()
