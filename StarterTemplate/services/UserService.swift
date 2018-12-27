@@ -14,17 +14,9 @@ class UserService: MainRequestService {
         return newRequestWithKeyPath(route: UserRouter.signup(user),
                                      keypath: "user")
     }
-    
-    func saveJWT(for jwt: String) {
-        KeychainService.setUserJWT(jwt: jwt)
-    }
-    
-    func logout() {
-        KeychainService.clearValues()
-    }
 }
 
-extension UserService: LoginService {
+extension UserService: LoginService, SignupService {
     
 }
 
