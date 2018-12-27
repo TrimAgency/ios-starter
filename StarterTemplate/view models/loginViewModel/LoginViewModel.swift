@@ -17,9 +17,12 @@ struct LoginViewModel {
     let isFormValid = BehaviorRelay<Bool>(value: false)
     
     private let userService: LoginService
+    private let userInfoService: UserInfoService
     
-    init(userService: LoginService) {
+    init(userService: LoginService, userInfoService: UserInfoService) {
         self.userService = userService
+        self.userInfoService = userInfoService
+        
     }
     
     func validateFields() -> Bool {
@@ -46,14 +49,17 @@ struct LoginViewModel {
                 if let jwt = response.jwt {
                     self.isLoading.accept(false)
                     self.success.accept(true)
-                    self.userService.saveJWT(for: jwt)
+                    self.userInfoService.setUserJWT(jwt: jwt)
                 }
             }, onError: { error in
-                switch error {
-                case ApiError.notFound:
-                    self.errorMsg.accept("not found")
+                 let errorObject = error as! ErrorResponseObject
+                switch errorObject.type {
+                case ApiErrorType.notFound:
+                    self.errorMsg.accept("No user found matching username / password")
+                case ApiErrorType.internalServerError:
+                    self.errorMsg.accept("There was an error processing your request")
                 default:
-                    self.errorMsg.accept("unkown error")
+                    self.errorMsg.accept("There was an error processing your request")
                 }
             }).disposed(by: disposebag)
         
