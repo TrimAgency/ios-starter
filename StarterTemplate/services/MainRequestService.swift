@@ -5,6 +5,8 @@ import RxSwift
 import Alamofire
 
 class MainRequestService {
+    var errorData: ApiErrorData?
+    
     func newRequestWithKeyPath<T: Mappable> (route: URLRequestConvertible, keypath: String) -> Observable<T> {
         return Observable<T>.create { observer in
             let request = APIClient.session
@@ -15,16 +17,28 @@ class MainRequestService {
                     case .success(let value):
                         observer.onNext(value)
                         observer.onCompleted()
-                    case .failure(let error):
+                    case .failure(_):
+                        if let data = response.data {
+                          let decoder = JSONDecoder()
+                          self.errorData = try! decoder.decode(ApiErrorData.self, from: data)
+                        }
                         switch response.response?.statusCode {
+                        case 400:
+                            let errorObject = ErrorResponseObject(type: ApiErrorType.badRequest, data: self.errorData)
+                            
+                            observer.onError(errorObject)
                         case 401:
-                            observer.onError(ApiError.unauthorized)
+                            let errorObject = ErrorResponseObject(type: ApiErrorType.unauthorized, data: self.errorData)
+                            observer.onError(errorObject)
                         case 404:
-                            observer.onError(ApiError.notFound)
+                            let errorObject = ErrorResponseObject(type: ApiErrorType.notFound, data: self.errorData)
+                            observer.onError(errorObject)
                         case 500:
-                            observer.onError(ApiError.internalServerError)
+                            let errorObject = ErrorResponseObject(type: ApiErrorType.internalServerError, data: self.errorData)
+                            observer.onError(errorObject)
                         default:
-                            observer.onError(error)
+                            let errorObject = ErrorResponseObject(type: ApiErrorType.unknown, data: self.errorData)
+                            observer.onError(errorObject)
                         }
                         
                     }
@@ -47,16 +61,24 @@ class MainRequestService {
                     case .success(let value):
                         observer.onNext(value)
                         observer.onCompleted()
-                    case .failure(let error):
+                    case .failure(_):
+                        if let data = response.data {
+                            let decoder = JSONDecoder()
+                            self.errorData = try! decoder.decode(ApiErrorData.self, from: data)
+                        }
                         switch response.response?.statusCode {
                         case 401:
-                            observer.onError(ApiError.unauthorized)
+                            let errorObject = ErrorResponseObject(type: ApiErrorType.unauthorized, data: self.errorData)
+                            observer.onError(errorObject)
                         case 404:
-                            observer.onError(ApiError.notFound)
+                            let errorObject = ErrorResponseObject(type: ApiErrorType.notFound, data: self.errorData)
+                            observer.onError(errorObject)
                         case 500:
-                            observer.onError(ApiError.internalServerError)
+                            let errorObject = ErrorResponseObject(type: ApiErrorType.internalServerError, data: self.errorData)
+                            observer.onError(errorObject)
                         default:
-                            observer.onError(error)
+                            let errorObject = ErrorResponseObject(type: ApiErrorType.unknown, data: self.errorData)
+                            observer.onError(errorObject)
                         }
                         
                     }
