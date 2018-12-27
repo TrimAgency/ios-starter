@@ -6,50 +6,49 @@ import RxBlocking
 import KeychainSwift
 @testable import StarterTemplate
 
-class LoginViewModelTests: XCTestCase {
+class SignupViewModelTests: XCTestCase {
     
     // Mock injected service
-    private class MockUserService: LoginService {
-        func login(with user: User) -> Observable<LoginResponse> {
-            let response = LoginResponse()
-            response.jwt = "testJWT1234658686jfjskjhkadhjf"
+    private class MockUserService: SignupService {
+        func signUp(with user: User) -> Observable<User> {
+            user.jwt = "testJWT1234658686jfjskjhkadhjf"
             
-        return Observable.just(response)
+            return Observable.just(user)
         }
     }
     
     private class MockUserInfoService: UserInfoService {
-        let keychain = KeychainSwift()
+         let keychain = KeychainSwift()
         
         func setUserJWT(jwt: String) {
-            keychain.set(jwt, forKey: "jwt")
+             keychain.set(jwt, forKey: "jwt")
         }
         
         func setUserEmail(email: String) {
-            keychain.set(email, forKey: "email")
+             keychain.set(email, forKey: "email")
         }
         
         
     }
     
-    var viewModel: LoginViewModel!
+    var viewModel: SignupViewModel!
     var scheduler: SchedulerType!
-
+    
     override func setUp() {
         super.setUp()
         let userService = MockUserService()
-        let userInfoServie = MockUserInfoService()
+        let userInfoService = MockUserInfoService()
         scheduler = ConcurrentDispatchQueueScheduler(qos: .default)
-        viewModel = LoginViewModel(userService: userService, userInfoService: userInfoServie)
+        viewModel = SignupViewModel(userService: userService, userInfoService: userInfoService)
     }
-
+    
     override func tearDown() {
         super.setUp()
     }
-
+    
     func testValidatesForm_with_good_data() {
         viewModel.emailViewModel.data.accept("test@testing.com")
-        viewModel.passwordVieModel.data.accept("password")
+        viewModel.passwordViewModel.data.accept("password")
         
         let formValid = viewModel.validateFields()
         
@@ -58,7 +57,7 @@ class LoginViewModelTests: XCTestCase {
     
     func testValidatesForm_with_bad_email() {
         viewModel.emailViewModel.data.accept("test@testing")
-        viewModel.passwordVieModel.data.accept("password")
+        viewModel.passwordViewModel.data.accept("password")
         
         let formValid = viewModel.validateFields()
         
@@ -67,34 +66,47 @@ class LoginViewModelTests: XCTestCase {
     
     func testValidatesForm_with_bad_password() {
         viewModel.emailViewModel.data.accept("test@testing.com")
-        viewModel.passwordVieModel.data.accept("pass")
+        viewModel.passwordViewModel.data.accept("pass")
         
         let formValid = viewModel.validateFields()
         
         XCTAssertFalse(formValid)
     }
     
-    func testLogin() {
+    func testSignup() {
         viewModel.emailViewModel.data.accept("test@testing.com")
-        viewModel.passwordVieModel.data.accept("password")
+        viewModel.passwordViewModel.data.accept("password")
         
-        viewModel.login()
+        viewModel.signup()
         
         XCTAssertTrue(viewModel.success.value)
         XCTAssertEqual(viewModel.user.email, "test@testing.com")
         XCTAssertEqual(viewModel.user.password, "password")
     }
     
-    func testLogin_saves_jwt() {
+    func testLogin_saves_jwt_to_keychain() {
+        let keychain = KeychainSwift()
+
+        viewModel.emailViewModel.data.accept("test@testing.com")
+        viewModel.passwordViewModel.data.accept("password")
+
+        viewModel.signup()
+
+        if let jwt = keychain.get("jwt") {
+            XCTAssertEqual(jwt, "testJWT1234658686jfjskjhkadhjf")
+        }
+    }
+    
+    func testLogin_saves_email_to_keychain() {
         let keychain = KeychainSwift()
         
         viewModel.emailViewModel.data.accept("test@testing.com")
-        viewModel.passwordVieModel.data.accept("password")
+        viewModel.passwordViewModel.data.accept("password")
         
-        viewModel.login()
+        viewModel.signup()
         
-        if let jwt = keychain.get("jwt") {
-            XCTAssertEqual(jwt, "testJWT1234658686jfjskjhkadhjf")
+        if let email = keychain.get("email") {
+            XCTAssertEqual(email, "test@testing.com")
         }
     }
 }
