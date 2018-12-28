@@ -13,15 +13,17 @@ class ErrorType: Mappable, Codable {
     }
 }
 
-class ApiErrorData: Mappable, Codable {
+class ApiResponseData: Mappable, Codable {
     
     var errors: ErrorType?
+    var message: String?
     
     init() {}
     
     required convenience init?(map: Map) { self.init() }
     
     func mapping(map: Map) {
-       
+       errors         <- map["errors"]
+       message        <- map["message"]
     }
 }

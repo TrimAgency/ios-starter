@@ -65,15 +65,6 @@ class LoginViewModelTests: XCTestCase {
         XCTAssertFalse(formValid)
     }
     
-    func testValidatesForm_with_bad_password() {
-        viewModel.emailViewModel.data.accept("test@testing.com")
-        viewModel.passwordVieModel.data.accept("pass")
-        
-        let formValid = viewModel.validateFields()
-        
-        XCTAssertFalse(formValid)
-    }
-    
     func testLogin() {
         viewModel.emailViewModel.data.accept("test@testing.com")
         viewModel.passwordVieModel.data.accept("password")

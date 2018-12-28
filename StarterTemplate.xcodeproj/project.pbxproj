@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0415E02221D0719A00529FA2 /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415E02121D0719A00529FA2 /* ForgotPasswordController.swift */; };
-		0415E02621D0735A00529FA2 /* ApiErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415E02521D0735A00529FA2 /* ApiErrorType.swift */; };
+		0415E02621D0735A00529FA2 /* ApiResponseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415E02521D0735A00529FA2 /* ApiResponseType.swift */; };
 		0415E02821D0791D00529FA2 /* MainRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415E02721D0791D00529FA2 /* MainRequestService.swift */; };
 		0415E02A21D1631100529FA2 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415E02921D1631100529FA2 /* LoginService.swift */; };
 		0415E02D21D16B2000529FA2 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0415E02C21D16B2000529FA2 /* LoginViewModel.swift */; };
@@ -22,12 +22,15 @@
 		043A054D21D41B7000197B11 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A054C21D41B7000197B11 /* LoginViewModelTests.swift */; };
 		043A054F21D4652500197B11 /* SignupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A054E21D4652500197B11 /* SignupService.swift */; };
 		043A055221D4659E00197B11 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A055121D4659E00197B11 /* SignupViewModel.swift */; };
-		043A055421D46E6D00197B11 /* ApiErrorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A055321D46E6D00197B11 /* ApiErrorData.swift */; };
+		043A055421D46E6D00197B11 /* ApiResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A055321D46E6D00197B11 /* ApiResponseData.swift */; };
 		043A055621D53DFC00197B11 /* ErrorResponseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A055521D53DFC00197B11 /* ErrorResponseObject.swift */; };
 		043A055821D55FA900197B11 /* SignupViewModalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A055721D55FA900197B11 /* SignupViewModalTests.swift */; };
 		043A055A21D563B300197B11 /* UserInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A055921D563B300197B11 /* UserInfoService.swift */; };
 		0441706E21CD84EE001504D6 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0441706D21CD84EE001504D6 /* Coordinator.swift */; };
 		0441707021CD86CD001504D6 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0441706F21CD86CD001504D6 /* UIStoryboard.swift */; };
+		047841BA21D6628E00318F18 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047841B921D6628E00318F18 /* ForgotPasswordViewModel.swift */; };
+		047841BC21D6655100318F18 /* ForgotPasswordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047841BB21D6655100318F18 /* ForgotPasswordService.swift */; };
+		047841BE21D66BF800318F18 /* ForgotPasswordViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047841BD21D66BF800318F18 /* ForgotPasswordViewModelTests.swift */; };
 		049E91242128A681007D63F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E91232128A681007D63F2 /* AppDelegate.swift */; };
 		049E91262128A681007D63F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E91252128A681007D63F2 /* ViewController.swift */; };
 		049E91292128A681007D63F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049E91272128A681007D63F2 /* Main.storyboard */; };
@@ -54,7 +57,7 @@
 		04AF95EA2144A4CD005C1E58 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AF95E92144A4CD005C1E58 /* LoginController.swift */; };
 		04AF95EC2144A4E0005C1E58 /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AF95EB2144A4E0005C1E58 /* SignupController.swift */; };
 		04DF74302155857A0081472E /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF742F2155857A0081472E /* AppButton.swift */; };
-		04EA82252130D9F80011755C /* NavigatorCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EA82242130D9F80011755C /* NavigatorCordinator.swift */; };
+		04EA82252130D9F80011755C /* MainCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EA82242130D9F80011755C /* MainCordinator.swift */; };
 		04EA82272130DA740011755C /* CALayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EA82262130DA740011755C /* CALayerExtension.swift */; };
 		04EA82292130DACA0011755C /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EA82282130DACA0011755C /* UIButtonExtension.swift */; };
 		4C6D5EC60DB261F32B35C721 /* Pods_UnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1A922722F3F64800E133369 /* Pods_UnitTests.framework */; };
@@ -72,7 +75,7 @@
 
 /* Begin PBXFileReference section */
 		0415E02121D0719A00529FA2 /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
-		0415E02521D0735A00529FA2 /* ApiErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiErrorType.swift; sourceTree = "<group>"; };
+		0415E02521D0735A00529FA2 /* ApiResponseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponseType.swift; sourceTree = "<group>"; };
 		0415E02721D0791D00529FA2 /* MainRequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRequestService.swift; sourceTree = "<group>"; };
 		0415E02921D1631100529FA2 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		0415E02C21D16B2000529FA2 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -87,12 +90,15 @@
 		043A054C21D41B7000197B11 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
 		043A054E21D4652500197B11 /* SignupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupService.swift; sourceTree = "<group>"; };
 		043A055121D4659E00197B11 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
-		043A055321D46E6D00197B11 /* ApiErrorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiErrorData.swift; sourceTree = "<group>"; };
+		043A055321D46E6D00197B11 /* ApiResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponseData.swift; sourceTree = "<group>"; };
 		043A055521D53DFC00197B11 /* ErrorResponseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponseObject.swift; sourceTree = "<group>"; };
 		043A055721D55FA900197B11 /* SignupViewModalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModalTests.swift; sourceTree = "<group>"; };
 		043A055921D563B300197B11 /* UserInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoService.swift; sourceTree = "<group>"; };
 		0441706D21CD84EE001504D6 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		0441706F21CD86CD001504D6 /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
+		047841B921D6628E00318F18 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
+		047841BB21D6655100318F18 /* ForgotPasswordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordService.swift; sourceTree = "<group>"; };
+		047841BD21D66BF800318F18 /* ForgotPasswordViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModelTests.swift; sourceTree = "<group>"; };
 		049E91202128A681007D63F2 /* StarterTemplate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarterTemplate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		049E91232128A681007D63F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		049E91252128A681007D63F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -121,7 +127,7 @@
 		04AF95E92144A4CD005C1E58 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		04AF95EB2144A4E0005C1E58 /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
 		04DF742F2155857A0081472E /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
-		04EA82242130D9F80011755C /* NavigatorCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorCordinator.swift; sourceTree = "<group>"; };
+		04EA82242130D9F80011755C /* MainCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCordinator.swift; sourceTree = "<group>"; };
 		04EA82262130DA740011755C /* CALayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
 		04EA82282130DACA0011755C /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		1297D4917CA0207BDEE19514 /* Pods-UnitTests.development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnitTests.development.xcconfig"; path = "Pods/Target Support Files/Pods-UnitTests/Pods-UnitTests.development.xcconfig"; sourceTree = "<group>"; };
@@ -209,6 +215,7 @@
 		0415E02E21D16CB300529FA2 /* view models */ = {
 			isa = PBXGroup;
 			children = (
+				047841B821D6626F00318F18 /* forgotPasswordViewModel */,
 				043A055021D4657400197B11 /* signupViewModel */,
 				0415E02B21D16B0B00529FA2 /* loginViewModel */,
 				0415E02F21D16CC500529FA2 /* PasswordViewModel.swift */,
@@ -241,6 +248,7 @@
 				043A054921D4135E00197B11 /* PasswordViewModelTests.swift */,
 				043A054C21D41B7000197B11 /* LoginViewModelTests.swift */,
 				043A055721D55FA900197B11 /* SignupViewModalTests.swift */,
+				047841BD21D66BF800318F18 /* ForgotPasswordViewModelTests.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -261,8 +269,17 @@
 				0415E03421D16D1600529FA2 /* ValidationViewModel.swift */,
 				043A054E21D4652500197B11 /* SignupService.swift */,
 				043A055921D563B300197B11 /* UserInfoService.swift */,
+				047841BB21D6655100318F18 /* ForgotPasswordService.swift */,
 			);
 			path = protocols;
+			sourceTree = "<group>";
+		};
+		047841B821D6626F00318F18 /* forgotPasswordViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				047841B921D6628E00318F18 /* ForgotPasswordViewModel.swift */,
+			);
+			path = forgotPasswordViewModel;
 			sourceTree = "<group>";
 		};
 		049E91172128A681007D63F2 = {
@@ -288,19 +305,19 @@
 		049E91222128A681007D63F2 /* StarterTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				0415E02E21D16CB300529FA2 /* view models */,
 				0415E02421D0724800529FA2 /* assets */,
 				0415E02321D0722500529FA2 /* application delegate */,
-				0441706C21CD84D2001504D6 /* protocols */,
-				04A0505721CD396B00D44CCC /* structs */,
-				04AF95E62144A470005C1E58 /* storyboards */,
-				04EA82232130D9E00011755C /* navigators */,
 				04EA82202130D8FD0011755C /* enums */,
 				049E914A2128B5EB007D63F2 /* extensions */,
-				049E91432128AF42007D63F2 /* routers */,
 				049E91402128AE43007D63F2 /* models */,
+				04EA82232130D9E00011755C /* navigators */,
+				0441706C21CD84D2001504D6 /* protocols */,
+				049E91432128AF42007D63F2 /* routers */,
+				04A0505721CD396B00D44CCC /* structs */,
+				04AF95E62144A470005C1E58 /* storyboards */,
 				049E91392128ABF0007D63F2 /* services */,
 				049E91382128ABDE007D63F2 /* view controllers */,
+				0415E02E21D16CB300529FA2 /* view models */,
 				049E91322128A682007D63F2 /* Info.plist */,
 				049E912A2128A681007D63F2 /* StarterTemplate.xcdatamodeld */,
 			);
@@ -335,7 +352,7 @@
 			children = (
 				049E91412128AE57007D63F2 /* User.swift */,
 				0415E03621D3C98100529FA2 /* LoginResponse.swift */,
-				043A055321D46E6D00197B11 /* ApiErrorData.swift */,
+				043A055321D46E6D00197B11 /* ApiResponseData.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -414,7 +431,7 @@
 			isa = PBXGroup;
 			children = (
 				04A0505521CD389C00D44CCC /* Constants.swift */,
-				0415E02521D0735A00529FA2 /* ApiErrorType.swift */,
+				0415E02521D0735A00529FA2 /* ApiResponseType.swift */,
 			);
 			path = enums;
 			sourceTree = "<group>";
@@ -422,7 +439,7 @@
 		04EA82232130D9E00011755C /* navigators */ = {
 			isa = PBXGroup;
 			children = (
-				04EA82242130D9F80011755C /* NavigatorCordinator.swift */,
+				04EA82242130D9F80011755C /* MainCordinator.swift */,
 			);
 			path = navigators;
 			sourceTree = "<group>";
@@ -711,6 +728,7 @@
 				043A054D21D41B7000197B11 /* LoginViewModelTests.swift in Sources */,
 				043A054A21D4135E00197B11 /* PasswordViewModelTests.swift in Sources */,
 				043A055821D55FA900197B11 /* SignupViewModalTests.swift in Sources */,
+				047841BE21D66BF800318F18 /* ForgotPasswordViewModelTests.swift in Sources */,
 				043A054821D4111E00197B11 /* EmailModelViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -719,12 +737,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04EA82252130D9F80011755C /* NavigatorCordinator.swift in Sources */,
+				04EA82252130D9F80011755C /* MainCordinator.swift in Sources */,
 				04EA82292130DACA0011755C /* UIButtonExtension.swift in Sources */,
 				0415E03721D3C98100529FA2 /* LoginResponse.swift in Sources */,
 				049E91262128A681007D63F2 /* ViewController.swift in Sources */,
 				04AF95EC2144A4E0005C1E58 /* SignupController.swift in Sources */,
 				0415E02821D0791D00529FA2 /* MainRequestService.swift in Sources */,
+				047841BC21D6655100318F18 /* ForgotPasswordService.swift in Sources */,
 				049E913B2128AC23007D63F2 /* KeyChainService.swift in Sources */,
 				049E912C2128A681007D63F2 /* StarterTemplate.xcdatamodeld in Sources */,
 				049E91452128AF61007D63F2 /* UserRouter.swift in Sources */,
@@ -736,13 +755,14 @@
 				04A0505D21CD41BD00D44CCC /* UITableViewCell.swift in Sources */,
 				049E91542128B94F007D63F2 /* UIScrollViewExtension.swift in Sources */,
 				04AF95EA2144A4CD005C1E58 /* LoginController.swift in Sources */,
-				043A055421D46E6D00197B11 /* ApiErrorData.swift in Sources */,
+				043A055421D46E6D00197B11 /* ApiResponseData.swift in Sources */,
 				04A0505621CD389C00D44CCC /* Constants.swift in Sources */,
 				049E913D2128AD88007D63F2 /* APICLient.swift in Sources */,
 				049E91242128A681007D63F2 /* AppDelegate.swift in Sources */,
 				049E91492128B243007D63F2 /* UserService.swift in Sources */,
 				043A055221D4659E00197B11 /* SignupViewModel.swift in Sources */,
 				04EA82272130DA740011755C /* CALayerExtension.swift in Sources */,
+				047841BA21D6628E00318F18 /* ForgotPasswordViewModel.swift in Sources */,
 				049E91562128B9B2007D63F2 /* UITextFieldExtension.swift in Sources */,
 				049E913F2128ADB5007D63F2 /* AuthAdapter.swift in Sources */,
 				0415E03321D16CE000529FA2 /* EmailViewModel.swift in Sources */,
@@ -753,7 +773,7 @@
 				049E91422128AE57007D63F2 /* User.swift in Sources */,
 				0415E02A21D1631100529FA2 /* LoginService.swift in Sources */,
 				049E91582128BA0E007D63F2 /* UserDefaultsExtension.swift in Sources */,
-				0415E02621D0735A00529FA2 /* ApiErrorType.swift in Sources */,
+				0415E02621D0735A00529FA2 /* ApiResponseType.swift in Sources */,
 				049E91502128B81A007D63F2 /* Validators.swift in Sources */,
 				04A0505921CD397E00D44CCC /* Configuration.swift in Sources */,
 				043A054F21D4652500197B11 /* SignupService.swift in Sources */,

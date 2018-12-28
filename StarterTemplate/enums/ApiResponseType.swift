@@ -1,10 +1,12 @@
 
 import Foundation
 
-// add additional error types that
+// add additional response types that
 // the API could return, Usually found
 // in exceptions.rb in API
-enum ApiErrorType: Error {
+enum ApiResponseType: Error {
+    case ok
+    case created
     case notFound
     case badRequest
     case unauthorized

@@ -14,9 +14,13 @@ class UserService: MainRequestService {
         return newRequestWithKeyPath(route: UserRouter.signup(user),
                                      keypath: "user")
     }
+    
+    func forgotPassword(with user: User) -> Observable<User> {
+        return newRequestWithKeyPath(route: UserRouter.forgotPassword(user), keypath: "password_reset")
+    }
 }
 
-extension UserService: LoginService, SignupService {
+extension UserService: LoginService, SignupService, ForgotPasswordService {
     
 }
 

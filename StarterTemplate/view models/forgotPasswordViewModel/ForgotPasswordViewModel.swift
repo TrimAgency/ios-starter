@@ -1,28 +1,23 @@
-
 import Foundation
 import RxCocoa
 import RxSwift
 
-struct LoginViewModel {
+struct ForgotPasswordViewModel {
     
     let user: User = User()
     let disposebag = DisposeBag()
     
     let emailViewModel = EmailViewModel()
-    let passwordVieModel = PasswordViewModel()
     
     let success = BehaviorRelay<Bool>(value: false)
     let isLoading = BehaviorRelay<Bool>(value: false)
     let errorMsg = BehaviorRelay<String>(value: "")
     let isFormValid = BehaviorRelay<Bool>(value: false)
     
-    private let userService: LoginService
-    private let userInfoService: UserInfoService
+    private let userService: ForgotPasswordService
     
-    init(userService: LoginService, userInfoService: UserInfoService) {
+    init(userService: ForgotPasswordService) {
         self.userService = userService
-        self.userInfoService = userInfoService
-        
     }
     
     func validateFields() -> Bool {
@@ -37,31 +32,26 @@ struct LoginViewModel {
         }
     }
     
-    func login() {
+    func forgotPassword() {
         user.email = emailViewModel.data.value
-        user.password = passwordVieModel.data.value
         
         isLoading.accept(true)
         
-        userService.login(with: user)
+        userService.forgotPassword(with: user)
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { response in
-                if let jwt = response.jwt {
-                    self.isLoading.accept(false)
-                    self.success.accept(true)
-                    self.userInfoService.setUserJWT(jwt: jwt)
-                }
+                self.isLoading.accept(false)
+                self.success.accept(true)
             }, onError: { error in
                 let errorObject = error as! ErrorResponseObject
                 switch errorObject.type {
                 case ApiResponseType.notFound:
-                    self.errorMsg.accept("No user found matching username / password")
+                    self.errorMsg.accept("No user found matching that email")
                 case ApiResponseType.internalServerError:
                     self.errorMsg.accept("There was an error processing your request")
                 default:
                     self.errorMsg.accept("There was an error processing your request")
                 }
             }).disposed(by: disposebag)
-        
     }
 }
