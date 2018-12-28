@@ -36,7 +36,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
     }
     
     private func goToHome() {
-        // use navigator to transition after successful login
+        coordinator?.start()
     }
 
 }
