@@ -11,18 +11,24 @@ class LoginController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var emailErrorLabel: UILabel!
     @IBOutlet weak var passwordErrorLabel: UILabel!
+    @IBOutlet weak var forgotPasswordBtn: UIButton!
+    @IBOutlet weak var signupBtn: UIButton!
     
     //internal props
     weak var coordinator: MainCoordinator?
     let disposeBag = DisposeBag()
-    let viewModel = LoginViewModel(userService: UserService(),
-                                   userInfoService: KeychainService())
+    var viewModel: LoginViewModel!
+    var spinnerView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createViewModelBinding()
+        spinnerView = UIView.init(frame: view.bounds)
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        
+        viewModel = LoginViewModel(userService: UserService(),
+                                   userInfoService: KeychainService())
+        createViewModelBinding()
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,22 +64,13 @@ extension LoginController {
 //MARK: - view model bindings
 extension LoginController {
     private func createViewModelBinding() {
+        // view prop bindings
         emailTextField.rx.text.orEmpty
             .bind(to: viewModel.emailViewModel.data)
             .disposed(by: disposeBag)
         
-        viewModel.emailViewModel.errorValue
-            .asObservable()
-            .bind(to: emailErrorLabel.rx.text)
-            .disposed(by: disposeBag)
-        
         passwordTextField.rx.text.orEmpty
             .bind(to: viewModel.passwordVieModel.data)
-            .disposed(by: disposeBag)
-        
-        viewModel.passwordVieModel.errorValue
-            .asObservable()
-            .bind(to: passwordErrorLabel.rx.text)
             .disposed(by: disposeBag)
         
         loginBtn.rx.tap.do(onNext: { [unowned self] in
@@ -84,6 +81,25 @@ extension LoginController {
                 self.viewModel.login()
             }
         }).disposed(by: disposeBag)
+        
+        forgotPasswordBtn.rx.tap.bind {
+            self.coordinator?.forgotPassword()
+        }.disposed(by: disposeBag)
+        
+        signupBtn.rx.tap.bind {
+            self.coordinator?.signup()
+        }.disposed(by: disposeBag)
+        
+        // view modal bindings
+        viewModel.emailViewModel.errorValue
+            .asObservable()
+            .bind(to: emailErrorLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.passwordVieModel.errorValue
+            .asObservable()
+            .bind(to: passwordErrorLabel.rx.text)
+            .disposed(by: disposeBag)
         
         viewModel.success
             .subscribe(onNext: { [unowned self] (value: Bool) in
@@ -96,6 +112,7 @@ extension LoginController {
         viewModel.errorMsg
             .subscribe(onNext: { [unowned self] (value) in
                 if !value.isEmpty {
+                    self.removeSpinner(spinner: self.spinnerView)
                     self.presentError(value)
                 }
             }).disposed(by: disposeBag)
@@ -106,6 +123,14 @@ extension LoginController {
                     self.loginBtn.enabled()
                 } else {
                     self.loginBtn.disabled()
+                }
+            }).disposed(by: disposeBag)
+        
+        viewModel.isLoading
+            .subscribe(onNext: { [unowned self] (value: Bool) in
+                if value {
+                    self.displaySpinner(onView: self.view,
+                                        spinnerView: self.spinnerView)
                 }
             }).disposed(by: disposeBag)
     }
