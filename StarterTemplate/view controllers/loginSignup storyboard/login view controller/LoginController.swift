@@ -10,7 +10,6 @@ class LoginController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var emailErrorLabel: UILabel!
-    @IBOutlet weak var passwordErrorLabel: UILabel!
     @IBOutlet weak var forgotPasswordBtn: UIButton!
     @IBOutlet weak var signupBtn: UIButton!
     
@@ -96,14 +95,10 @@ extension LoginController {
             .bind(to: emailErrorLabel.rx.text)
             .disposed(by: disposeBag)
         
-        viewModel.passwordVieModel.errorValue
-            .asObservable()
-            .bind(to: passwordErrorLabel.rx.text)
-            .disposed(by: disposeBag)
-        
         viewModel.success
             .subscribe(onNext: { [unowned self] (value: Bool) in
                 if value {
+                    self.removeSpinner(spinner: self.spinnerView)
                     // this is here soley for debugging purposes
                     self.presentMessage(title: "Success", message: "You are now logged in")
                     self.goToHome()

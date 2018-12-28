@@ -26,7 +26,7 @@ struct LoginViewModel {
     }
     
     func validateFields() -> Bool {
-        return emailViewModel.validateCredentials() && passwordVieModel.validateCredentials()
+        return emailViewModel.validateCredentials()
     }
     
     func validateForm() {
@@ -52,11 +52,11 @@ struct LoginViewModel {
                     self.userInfoService.setUserJWT(jwt: jwt)
                 }
             }, onError: { error in
-                 let errorObject = error as! ErrorResponseObject
+                let errorObject = error as! ErrorResponseObject
                 switch errorObject.type {
-                case ApiErrorType.notFound:
+                case ApiResponseType.notFound:
                     self.errorMsg.accept("No user found matching username / password")
-                case ApiErrorType.internalServerError:
+                case ApiResponseType.internalServerError:
                     self.errorMsg.accept("There was an error processing your request")
                 default:
                     self.errorMsg.accept("There was an error processing your request")
