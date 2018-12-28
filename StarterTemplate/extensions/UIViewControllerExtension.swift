@@ -6,8 +6,7 @@ extension UIViewController {
         return String(describing: self)
     }
     
-    class func displaySpinner(onView: UIView) -> UIView {
-        let spinnerView = UIView.init(frame: onView.bounds)
+    func displaySpinner(onView: UIView, spinnerView: UIView) {
         spinnerView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
         let ai = UIActivityIndicatorView.init(style: .whiteLarge)
         ai.startAnimating()
@@ -17,11 +16,9 @@ extension UIViewController {
             spinnerView.addSubview(ai)
             onView.addSubview(spinnerView)
         }
-        
-        return spinnerView
     }
     
-    class func removeSpinner(spinner: UIView) {
+    func removeSpinner(spinner: UIView) {
         DispatchQueue.main.async {
             spinner.removeFromSuperview()
         }
