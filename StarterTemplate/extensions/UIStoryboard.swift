@@ -25,4 +25,8 @@ extension UIStoryboard {
     static var signupController: SignupController {
         return UIStoryboard.loginSignup.instantiateViewController(withIdentifier: SignupController.storyboardIdentifier) as! SignupController
     }
+    
+    static var forgotPasswordController: ForgotPasswordController {
+        return UIStoryboard.loginSignup.instantiateViewController(withIdentifier: ForgotPasswordController.storyboardIdentifier) as! ForgotPasswordController
+    }
 }

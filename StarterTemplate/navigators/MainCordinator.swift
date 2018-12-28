@@ -27,5 +27,11 @@ class MainCoordinator: Coordinator {
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }
+    
+    func forgotPassword() {
+        let vc = UIStoryboard.forgotPasswordController
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
 }
 

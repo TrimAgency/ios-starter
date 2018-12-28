@@ -54,7 +54,7 @@
 		04AF95EA2144A4CD005C1E58 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AF95E92144A4CD005C1E58 /* LoginController.swift */; };
 		04AF95EC2144A4E0005C1E58 /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AF95EB2144A4E0005C1E58 /* SignupController.swift */; };
 		04DF74302155857A0081472E /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF742F2155857A0081472E /* AppButton.swift */; };
-		04EA82252130D9F80011755C /* NavigatorCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EA82242130D9F80011755C /* NavigatorCordinator.swift */; };
+		04EA82252130D9F80011755C /* MainCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EA82242130D9F80011755C /* MainCordinator.swift */; };
 		04EA82272130DA740011755C /* CALayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EA82262130DA740011755C /* CALayerExtension.swift */; };
 		04EA82292130DACA0011755C /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EA82282130DACA0011755C /* UIButtonExtension.swift */; };
 		4C6D5EC60DB261F32B35C721 /* Pods_UnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1A922722F3F64800E133369 /* Pods_UnitTests.framework */; };
@@ -121,7 +121,7 @@
 		04AF95E92144A4CD005C1E58 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		04AF95EB2144A4E0005C1E58 /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
 		04DF742F2155857A0081472E /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
-		04EA82242130D9F80011755C /* NavigatorCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorCordinator.swift; sourceTree = "<group>"; };
+		04EA82242130D9F80011755C /* MainCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCordinator.swift; sourceTree = "<group>"; };
 		04EA82262130DA740011755C /* CALayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
 		04EA82282130DACA0011755C /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		1297D4917CA0207BDEE19514 /* Pods-UnitTests.development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnitTests.development.xcconfig"; path = "Pods/Target Support Files/Pods-UnitTests/Pods-UnitTests.development.xcconfig"; sourceTree = "<group>"; };
@@ -288,19 +288,19 @@
 		049E91222128A681007D63F2 /* StarterTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				0415E02E21D16CB300529FA2 /* view models */,
 				0415E02421D0724800529FA2 /* assets */,
 				0415E02321D0722500529FA2 /* application delegate */,
-				0441706C21CD84D2001504D6 /* protocols */,
-				04A0505721CD396B00D44CCC /* structs */,
-				04AF95E62144A470005C1E58 /* storyboards */,
-				04EA82232130D9E00011755C /* navigators */,
 				04EA82202130D8FD0011755C /* enums */,
 				049E914A2128B5EB007D63F2 /* extensions */,
-				049E91432128AF42007D63F2 /* routers */,
 				049E91402128AE43007D63F2 /* models */,
+				04EA82232130D9E00011755C /* navigators */,
+				0441706C21CD84D2001504D6 /* protocols */,
+				049E91432128AF42007D63F2 /* routers */,
+				04A0505721CD396B00D44CCC /* structs */,
+				04AF95E62144A470005C1E58 /* storyboards */,
 				049E91392128ABF0007D63F2 /* services */,
 				049E91382128ABDE007D63F2 /* view controllers */,
+				0415E02E21D16CB300529FA2 /* view models */,
 				049E91322128A682007D63F2 /* Info.plist */,
 				049E912A2128A681007D63F2 /* StarterTemplate.xcdatamodeld */,
 			);
@@ -422,7 +422,7 @@
 		04EA82232130D9E00011755C /* navigators */ = {
 			isa = PBXGroup;
 			children = (
-				04EA82242130D9F80011755C /* NavigatorCordinator.swift */,
+				04EA82242130D9F80011755C /* MainCordinator.swift */,
 			);
 			path = navigators;
 			sourceTree = "<group>";
@@ -719,7 +719,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04EA82252130D9F80011755C /* NavigatorCordinator.swift in Sources */,
+				04EA82252130D9F80011755C /* MainCordinator.swift in Sources */,
 				04EA82292130DACA0011755C /* UIButtonExtension.swift in Sources */,
 				0415E03721D3C98100529FA2 /* LoginResponse.swift in Sources */,
 				049E91262128A681007D63F2 /* ViewController.swift in Sources */,
