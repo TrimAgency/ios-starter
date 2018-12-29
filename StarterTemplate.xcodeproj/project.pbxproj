@@ -199,6 +199,7 @@
 		0415E02421D0724800529FA2 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				047D016021D712DE00055CC1 /* fonts */,
 				049E912D2128A682007D63F2 /* Assets.xcassets */,
 			);
 			path = assets;
@@ -280,6 +281,13 @@
 				047841B921D6628E00318F18 /* ForgotPasswordViewModel.swift */,
 			);
 			path = forgotPasswordViewModel;
+			sourceTree = "<group>";
+		};
+		047D016021D712DE00055CC1 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 		049E91172128A681007D63F2 = {
