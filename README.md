@@ -12,7 +12,11 @@ If you do not have cocoapods installed, in your terminal type: `gem install coco
 
 Navigate to the projects root. From the terminal type: `pod install`
 
+Open Xcode and build the project.
+
 ## Setting up a new project
+
+1. Change the project name.
 
 ## Configuration Environments
 
