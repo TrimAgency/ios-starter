@@ -4,6 +4,7 @@ import Foundation
 
 class LoginResponse: Mappable {
     var jwt: String?
+    var user: User?
     
     init() {}
     
@@ -11,5 +12,6 @@ class LoginResponse: Mappable {
     
     func mapping(map: Map) {
         jwt                       <- map["jwt"]
+        user                      <- map["user"]
     }
 }

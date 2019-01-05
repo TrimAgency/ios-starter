@@ -14,7 +14,6 @@ class ErrorType: Mappable, Codable {
 }
 
 class ApiResponseData: Mappable, Codable {
-    
     var errors: ErrorType?
     var message: String?
     
