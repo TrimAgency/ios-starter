@@ -1,24 +1,6 @@
 import ObjectMapper
 import Foundation
 
-class Consumer: Mappable {
-    
-    var id: Int?
-    var firstName: String?
-    var lastName: String?
-    
-    init() {}
-    
-    required convenience init?(map: Map) { self.init() }
-    
-    func mapping(map: Map) {
-        id                        <- map["id"]
-        lastName                  <- map["last_name"]
-        firstName                 <- map["first_name"]
-    }
-}
-
-
 class User: Mappable {
     
     var id: Int?
@@ -28,6 +10,7 @@ class User: Mappable {
     var profileType: String?
     var timeZone: String?
     var consumer: Consumer?
+    var device: Device?
     
     init() {}
     
@@ -41,5 +24,6 @@ class User: Mappable {
         profileType               <- map["profile_type"]
         timeZone                  <- map["time_zone"]
         consumer                  <- map["consumer"]
+        device                    <- map["device"]
     }
 }
