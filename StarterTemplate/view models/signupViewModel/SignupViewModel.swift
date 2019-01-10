@@ -55,8 +55,12 @@ struct SignupViewModel {
                 }
             }, onError: { error in
                 let errorObject = error as! ErrorResponseObject
-                if let errors = errorObject.data?.errors?.email {
-                    self.errorMsg.accept("Email \(errors.joined(separator: " Email "))")
+                switch errorObject.status {
+                // handle additional errors here or pass the API error directly
+                case 500:
+                    self.errorMsg.accept("There was an error processing your request")
+                default:
+                    self.errorMsg.accept("There was an error processing your request")
                 }
             }).disposed(by: disposebag)
         

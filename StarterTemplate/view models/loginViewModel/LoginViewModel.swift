@@ -53,15 +53,20 @@ struct LoginViewModel {
                 }
             }, onError: { error in
                 let errorObject = error as! ErrorResponseObject
-                switch errorObject.type {
-                case ApiResponseType.notFound:
+                switch errorObject.status {
+                    // handle additional errors here or pass the API error directly
+                case 404:
                     self.errorMsg.accept("No user found matching username / password")
-                case ApiResponseType.internalServerError:
+                case 500:
                     self.errorMsg.accept("There was an error processing your request")
                 default:
                     self.errorMsg.accept("There was an error processing your request")
                 }
             }).disposed(by: disposebag)
+        
+    }
+    
+    func deviceTokenCheck() {
         
     }
 }
