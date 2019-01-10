@@ -19,28 +19,17 @@ class MainRequestService {
                         observer.onCompleted()
                     case .failure(_):
                         if let data = response.data {
-                          let decoder = JSONDecoder()
-                          self.errorData = try! decoder.decode(ApiResponseData.self, from: data)
-                        }
-                        switch response.response?.statusCode {
-                        case 400:
-                            let errorObject = ErrorResponseObject(type: ApiResponseType.badRequest, data: self.errorData)
+                            let decoder = JSONDecoder()
+                            do {
+                                self.errorData =  try decoder.decode(ApiResponseData.self, from: data)
+                                let errorObject = ErrorResponseObject(status: response.response!.statusCode, data: self.errorData)
+                                observer.onError(errorObject)
+                            } catch {
+                                let errorObject = ErrorResponseObject(status: response.response!.statusCode, data: nil)
+                                observer.onError(errorObject)
+                            }
                             
-                            observer.onError(errorObject)
-                        case 401:
-                            let errorObject = ErrorResponseObject(type: ApiResponseType.unauthorized, data: self.errorData)
-                            observer.onError(errorObject)
-                        case 404:
-                            let errorObject = ErrorResponseObject(type: ApiResponseType.notFound, data: self.errorData)
-                            observer.onError(errorObject)
-                        case 500:
-                            let errorObject = ErrorResponseObject(type: ApiResponseType.internalServerError, data: self.errorData)
-                            observer.onError(errorObject)
-                        default:
-                            let errorObject = ErrorResponseObject(type: ApiResponseType.unknown, data: self.errorData)
-                            observer.onError(errorObject)
                         }
-                        
                     }
                     
             }
@@ -64,23 +53,16 @@ class MainRequestService {
                     case .failure(_):
                         if let data = response.data {
                             let decoder = JSONDecoder()
-                            self.errorData = try! decoder.decode(ApiResponseData.self, from: data)
+                            do {
+                                self.errorData =  try decoder.decode(ApiResponseData.self, from: data)
+                                let errorObject = ErrorResponseObject(status: response.response!.statusCode, data: self.errorData)
+                                observer.onError(errorObject)
+                            } catch {
+                               let errorObject = ErrorResponseObject(status: response.response!.statusCode, data: nil)
+                               observer.onError(errorObject)
+                            }
+                            
                         }
-                        switch response.response?.statusCode {
-                        case 401:
-                            let errorObject = ErrorResponseObject(type: ApiResponseType.unauthorized, data: self.errorData)
-                            observer.onError(errorObject)
-                        case 404:
-                            let errorObject = ErrorResponseObject(type: ApiResponseType.notFound, data: self.errorData)
-                            observer.onError(errorObject)
-                        case 500:
-                            let errorObject = ErrorResponseObject(type: ApiResponseType.internalServerError, data: self.errorData)
-                            observer.onError(errorObject)
-                        default:
-                            let errorObject = ErrorResponseObject(type: ApiResponseType.unknown, data: self.errorData)
-                            observer.onError(errorObject)
-                        }
-                        
                     }
                     
             }

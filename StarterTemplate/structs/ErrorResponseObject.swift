@@ -2,6 +2,6 @@
 import Foundation
 
 struct ErrorResponseObject: Error {
-    var type: ApiResponseType
+    var status: Int
     var data: ApiResponseData?
 }
