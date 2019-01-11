@@ -28,7 +28,9 @@ class SignupViewModelTests: XCTestCase {
              keychain.set(email, forKey: "email")
         }
         
-        
+        func getUserDeviceToken() -> String? {
+            return "testToken"
+        }
     }
     
     var viewModel: SignupViewModel!
