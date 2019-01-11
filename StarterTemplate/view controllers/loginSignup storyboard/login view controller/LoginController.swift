@@ -26,7 +26,8 @@ class LoginController: UIViewController, UITextFieldDelegate {
         passwordTextField.delegate = self
         
         viewModel = LoginViewModel(userService: UserService(),
-                                   userInfoService: KeychainService())
+                                   userInfoService: KeychainService(),
+                                   deviceService: DeviceService())
         createViewModelBinding()
     }
 
