@@ -21,7 +21,6 @@ struct SignupViewModel {
     init(userService: SignupService, userInfoService: UserInfoService) {
         self.userService = userService
         self.userInfoService = userInfoService
-        
     }
     
     func validateFields() -> Bool {
@@ -41,6 +40,7 @@ struct SignupViewModel {
         user.password = passwordViewModel.data.value
         user.profileType = "Consumer"
         user.timeZone = TimeZone.current.identifier
+        user.device = createUserDevice()
         
         isLoading.accept(true)
         
@@ -64,5 +64,15 @@ struct SignupViewModel {
                 }
             }).disposed(by: disposebag)
         
+    }
+    
+    private func createUserDevice() -> Device {
+        let device = Device()
+        if let token = userInfoService.getUserDeviceToken() {
+            device.deviceToken = token
+            device.platform = "apn"
+        }
+        
+        return device
     }
 }

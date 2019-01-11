@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         let token = tokenParts.joined()
         print("*************** token:\(token)")
-        KeychainService().keychain.set(token, forKey: "deviceToken")
+        KeychainService().setUserDeviceToken(token: token)
     }
     
     func application(_ application: UIApplication,

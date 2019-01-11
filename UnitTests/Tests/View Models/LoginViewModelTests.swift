@@ -8,13 +8,23 @@ import KeychainSwift
 
 class LoginViewModelTests: XCTestCase {
     
-    // Mock injected service
+    // Mock injected services
     private class MockUserService: LoginService {
         func login(with user: User) -> Observable<LoginResponse> {
             let response = LoginResponse()
             response.jwt = "testJWT1234658686jfjskjhkadhjf"
             
         return Observable.just(response)
+        }
+    }
+    
+    private class MockDeviceService: DeviceService {
+        override func create(with device: Device) -> Observable<Device> {
+            return Observable.just(device)
+        }
+        
+        override func update(with device: Device) -> Observable<Device> {
+            return Observable.just(device)
         }
     }
     
@@ -29,7 +39,9 @@ class LoginViewModelTests: XCTestCase {
             keychain.set(email, forKey: "email")
         }
         
-        
+        func getUserDeviceToken() -> String? {
+            return "test Token"
+        }
     }
     
     var viewModel: LoginViewModel!
@@ -39,8 +51,11 @@ class LoginViewModelTests: XCTestCase {
         super.setUp()
         let userService = MockUserService()
         let userInfoServie = MockUserInfoService()
+        let deviceService = MockDeviceService()
         scheduler = ConcurrentDispatchQueueScheduler(qos: .default)
-        viewModel = LoginViewModel(userService: userService, userInfoService: userInfoServie)
+        viewModel = LoginViewModel(userService: userService,
+                                   userInfoService: userInfoServie,
+                                   deviceService: deviceService)
     }
 
     override func tearDown() {
