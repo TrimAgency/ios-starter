@@ -99,6 +99,7 @@ struct LoginViewModel {
     private func updateDevice(for device: Device) {
         deviceService.update(with: device)
             .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+            .retry(2)
             .subscribe(onNext: { print($0) })
             .disposed(by: disposebag)
     }
@@ -106,6 +107,7 @@ struct LoginViewModel {
     private func createDevice(for device: Device) {
         deviceService.create(with: device)
             .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+            .retry(2)
             .subscribe(onNext: { print($0) })
             .disposed(by: disposebag)
     }
