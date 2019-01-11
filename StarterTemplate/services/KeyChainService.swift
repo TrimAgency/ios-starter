@@ -29,6 +29,13 @@ class KeychainService {
         keychain.set(password, forKey: "password")
     }
     
+    func setUserDeviceToken(token: String) {
+        keychain.set(token, forKey: "deviceToken")
+    }
+    
+    func getUserDeviceToken() -> String? {
+        return keychain.get("deviceToken")
+    }
     
     func setRememberTrue() {
         keychain.set(true, forKey: "remember")

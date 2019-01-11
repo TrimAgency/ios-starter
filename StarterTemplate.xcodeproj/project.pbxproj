@@ -154,12 +154,9 @@
 		1297D4917CA0207BDEE19514 /* Pods-UnitTests.development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnitTests.development.xcconfig"; path = "Pods/Target Support Files/Pods-UnitTests/Pods-UnitTests.development.xcconfig"; sourceTree = "<group>"; };
 		230455C6FB2D67B9517FA79B /* Pods_StarterTemplateTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarterTemplateTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F306766643B0C9531CF2AC4 /* Pods-UnitTests.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnitTests.staging.xcconfig"; path = "Pods/Target Support Files/Pods-UnitTests/Pods-UnitTests.staging.xcconfig"; sourceTree = "<group>"; };
-		395D383B3B50C2368250A0E9 /* Pods-StarterTemplateTests.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarterTemplateTests.staging.xcconfig"; path = "Pods/Target Support Files/Pods-StarterTemplateTests/Pods-StarterTemplateTests.staging.xcconfig"; sourceTree = "<group>"; };
-		3C6715BDC9FF3D2FA22439E6 /* Pods-StarterTemplateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarterTemplateTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StarterTemplateTests/Pods-StarterTemplateTests.release.xcconfig"; sourceTree = "<group>"; };
 		3F26A2FB0B2E8A0B9F6C9442 /* Pods-UnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UnitTests/Pods-UnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		4919E2E46FC7104D5972555F /* Pods-StarterTemplate.development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarterTemplate.development.xcconfig"; path = "Pods/Target Support Files/Pods-StarterTemplate/Pods-StarterTemplate.development.xcconfig"; sourceTree = "<group>"; };
 		70EE0F05DB3CBD654A11BB0C /* Pods-StarterTemplate.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarterTemplate.staging.xcconfig"; path = "Pods/Target Support Files/Pods-StarterTemplate/Pods-StarterTemplate.staging.xcconfig"; sourceTree = "<group>"; };
-		8ADFA0148BEE9311D47D6117 /* Pods-StarterTemplateTests.development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarterTemplateTests.development.xcconfig"; path = "Pods/Target Support Files/Pods-StarterTemplateTests/Pods-StarterTemplateTests.development.xcconfig"; sourceTree = "<group>"; };
 		8E26B1125D2E2151E2592FC3 /* Pods_StarterTemplate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarterTemplate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB567DA9FA07A6661EF04DD /* Pods-StarterTemplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarterTemplate.release.xcconfig"; path = "Pods/Target Support Files/Pods-StarterTemplate/Pods-StarterTemplate.release.xcconfig"; sourceTree = "<group>"; };
 		D1A922722F3F64800E133369 /* Pods_UnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -502,9 +499,6 @@
 				4919E2E46FC7104D5972555F /* Pods-StarterTemplate.development.xcconfig */,
 				70EE0F05DB3CBD654A11BB0C /* Pods-StarterTemplate.staging.xcconfig */,
 				CFB567DA9FA07A6661EF04DD /* Pods-StarterTemplate.release.xcconfig */,
-				8ADFA0148BEE9311D47D6117 /* Pods-StarterTemplateTests.development.xcconfig */,
-				395D383B3B50C2368250A0E9 /* Pods-StarterTemplateTests.staging.xcconfig */,
-				3C6715BDC9FF3D2FA22439E6 /* Pods-StarterTemplateTests.release.xcconfig */,
 				1297D4917CA0207BDEE19514 /* Pods-UnitTests.development.xcconfig */,
 				2F306766643B0C9531CF2AC4 /* Pods-UnitTests.staging.xcconfig */,
 				3F26A2FB0B2E8A0B9F6C9442 /* Pods-UnitTests.release.xcconfig */,
