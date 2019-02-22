@@ -16,11 +16,13 @@ extension UIButton {
     
     func disabled() {
         isEnabled = false
+        // REPLACE WITH COLOR FROM DESIGN
         layer.backgroundColor = UIColor.gray.cgColor
     }
     
     func enabled() {
         isEnabled = true
+        // REPLACE WITH COLOR FROM DESIGN
         layer.backgroundColor = UIColor.green.cgColor
     }
 }
