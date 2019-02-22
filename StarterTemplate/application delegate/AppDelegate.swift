@@ -4,10 +4,8 @@ import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
-
     var window: UIWindow?
     var coordinator: MainCoordinator?
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         registerForPushNotifications()
@@ -61,8 +59,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         _ application: UIApplication,
         didReceiveRemoteNotification userInfo: [AnyHashable : Any],
         fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        let aps = userInfo["aps"] as! [String: AnyObject]
-        let state = UIApplication.shared.applicationState
+        // REPLACE _ with variable name and use in logic to handle receipt of notification
+        _ = userInfo["aps"] as! [String: AnyObject]
+        _ = UIApplication.shared.applicationState
         
         // logic for handling push notifications here
     }

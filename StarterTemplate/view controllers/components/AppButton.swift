@@ -13,10 +13,8 @@ class AppButton: UIButton {
     
     private func setup() {
         layer.cornerRadius = 24
-        frame.size.width = 327
-        frame.size.height = 56
         layer.masksToBounds = true
-        layer.backgroundColor = UIColor.black.cgColor
+        layer.backgroundColor = UIColor.Starter.maize.cgColor
     }
     
     func enableButton() {

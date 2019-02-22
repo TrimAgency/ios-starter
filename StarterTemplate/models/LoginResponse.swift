@@ -1,6 +1,5 @@
 import Foundation
 import ObjectMapper
-import Foundation
 
 class LoginResponse: Mappable {
     var jwt: String?
