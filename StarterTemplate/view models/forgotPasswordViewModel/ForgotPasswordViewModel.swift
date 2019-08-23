@@ -43,7 +43,7 @@ struct ForgotPasswordViewModel {
                 self.isLoading.accept(false)
                 self.success.accept(true)
             }, onError: { error in
-                let errorObject = error as! ErrorResponseObject
+                guard let errorObject = error as? ErrorResponseObject else { return }
                 switch errorObject.status {
                 // handle additional errors here or pass the API error directly
                 case 404:
