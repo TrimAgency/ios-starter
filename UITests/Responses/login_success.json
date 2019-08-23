@@ -1,0 +1,12 @@
+{
+    "jwt": "testtoken1234567890",
+    "user": {
+        "id": "1",
+        "email": "tester@test.com",
+        "consumer": {
+            "id": "1",
+            "first_name:": "new",
+            "last_name": "person"
+        }
+    }
+}

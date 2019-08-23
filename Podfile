@@ -14,8 +14,12 @@ target 'StarterTemplate' do
   
   target 'UnitTests' do
     inherit! :search_paths
-      
     pod 'RxTest'
     pod 'RxBlocking'
+  end
+  
+  target 'UITests' do
+    inherit! :search_paths
+    pod 'Swifter'
   end
 end
