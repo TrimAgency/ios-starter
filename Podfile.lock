@@ -3,14 +3,7 @@ PODS:
   - AlamofireObjectMapper (5.2.0):
     - Alamofire (~> 4.7)
     - ObjectMapper (~> 3.4)
-  - CocoaAsyncSocket (7.6.3)
-  - Criollo (0.5.5):
-    - CocoaAsyncSocket (~> 7.6)
-  - GzipSwift (4.1.0)
   - KeychainSwift (13.0.0)
-  - NetworkInterceptor (0.0.8):
-    - GzipSwift
-    - URLRequest-cURL
   - ObjectMapper (3.4.2)
   - RxAtomic (4.4.0)
   - RxBlocking (4.4.0):
@@ -24,31 +17,21 @@ PODS:
     - RxAtomic (~> 4.4)
     - RxSwift (~> 4.0)
   - Swifter (1.4.5)
-  - SwiftLocalhost (0.0.7):
-    - Criollo
-  - URLRequest-cURL (0.0.3):
-    - GzipSwift
 
 DEPENDENCIES:
   - Alamofire
   - AlamofireObjectMapper
   - KeychainSwift
-  - NetworkInterceptor
   - RxBlocking
   - RxCocoa
   - RxSwift
   - RxTest
   - Swifter
-  - SwiftLocalhost
 
 SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   AlamofireObjectMapper: 92b6ce2423a9d159e686f6a1d514a009bf903ddc
-  CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
-  Criollo: 617173837c296ca4248b0b058f36ce9b91e5c25b
-  GzipSwift: df1636fa095bd8f21d98db14e7393ecc9e230fed
   KeychainSwift: 23d6c16cbc33f20fafa30c3d783241b4b87d998c
-  NetworkInterceptor: 711ba8988a2200937e89a12da7fcd8cb28930e91
   ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
   RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
   RxBlocking: 138ad53217434444d6eeeb4fb406a45431d92e31
@@ -56,9 +39,7 @@ SPEC CHECKSUMS:
   RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
   RxTest: 19d03286bdc0a3aaea5d61d4cde31fdf4bb8a5ba
   Swifter: eb2bc1d192a1c09169c7fefd01971565fa940521
-  SwiftLocalhost: f68ab30084edd2b438438dfe6b90b0ace4fdcf52
-  URLRequest-cURL: b159525e416ead3133ae60450660b8c82d2f2aa0
 
-PODFILE CHECKSUM: c0b8771bcdbf3659b98681e9b406654ff1038428
+PODFILE CHECKSUM: 6ded2e2682d223312a2d49707158966ee1045ecd
 
 COCOAPODS: 1.4.0

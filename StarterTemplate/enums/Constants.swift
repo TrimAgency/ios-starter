@@ -4,11 +4,12 @@ enum Constants: String {
     case Development = "Development"
     case Staging = "Staging"
     case Release = "Release"
+    case Testing = "Testing"
     
     var baseURL: String {
         switch self {
-        // should make UITesting Build to seperate out baseUrl
-        case .Development: return "http://localhost:8080"
+        case .Development: return "https://starter-api.ngrok.io"
+        case .Testing: return "http://localhost:8080"
         case .Staging: return "https://staging-api.heroku.com"
         case .Release: return "https://production-api.heroku.com"
         }
