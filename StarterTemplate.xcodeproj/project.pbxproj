@@ -31,9 +31,12 @@
 		043A055A21D563B300197B11 /* UserInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A055921D563B300197B11 /* UserInfoService.swift */; };
 		0441706E21CD84EE001504D6 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0441706D21CD84EE001504D6 /* Coordinator.swift */; };
 		0441707021CD86CD001504D6 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0441706F21CD86CD001504D6 /* UIStoryboard.swift */; };
+		0458476123105F7D00DE8E1B /* ObjectMapperTransformations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458476023105F7D00DE8E1B /* ObjectMapperTransformations.swift */; };
+		04584764231062B100DE8E1B /* ConnectivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04584763231062B100DE8E1B /* ConnectivityService.swift */; };
 		047841BA21D6628E00318F18 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047841B921D6628E00318F18 /* ForgotPasswordViewModel.swift */; };
 		047841BC21D6655100318F18 /* ForgotPasswordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047841BB21D6655100318F18 /* ForgotPasswordService.swift */; };
 		047841BE21D66BF800318F18 /* ForgotPasswordViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047841BD21D66BF800318F18 /* ForgotPasswordViewModelTests.swift */; };
+		047F3C992310635700497191 /* NotificationNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F3C982310635700497191 /* NotificationNameExtension.swift */; };
 		0492BC2523104F5B00DC2318 /* TextContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0492BC2423104F5B00DC2318 /* TextContent.swift */; };
 		049E91242128A681007D63F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E91232128A681007D63F2 /* AppDelegate.swift */; };
 		049E91262128A681007D63F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E91252128A681007D63F2 /* ViewController.swift */; };
@@ -118,9 +121,12 @@
 		043A055921D563B300197B11 /* UserInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoService.swift; sourceTree = "<group>"; };
 		0441706D21CD84EE001504D6 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		0441706F21CD86CD001504D6 /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
+		0458476023105F7D00DE8E1B /* ObjectMapperTransformations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectMapperTransformations.swift; sourceTree = "<group>"; };
+		04584763231062B100DE8E1B /* ConnectivityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityService.swift; sourceTree = "<group>"; };
 		047841B921D6628E00318F18 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
 		047841BB21D6655100318F18 /* ForgotPasswordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordService.swift; sourceTree = "<group>"; };
 		047841BD21D66BF800318F18 /* ForgotPasswordViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModelTests.swift; sourceTree = "<group>"; };
+		047F3C982310635700497191 /* NotificationNameExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExtension.swift; sourceTree = "<group>"; };
 		0492BC2423104F5B00DC2318 /* TextContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextContent.swift; sourceTree = "<group>"; };
 		049E91202128A681007D63F2 /* StarterTemplate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarterTemplate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		049E91232128A681007D63F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -342,6 +348,18 @@
 			path = protocols;
 			sourceTree = "<group>";
 		};
+		045847622310627B00DE8E1B /* api requests */ = {
+			isa = PBXGroup;
+			children = (
+				0415E02721D0791D00529FA2 /* MainRequestService.swift */,
+				049E913E2128ADB5007D63F2 /* AuthAdapter.swift */,
+				049E913C2128AD88007D63F2 /* APICLient.swift */,
+				049E91482128B243007D63F2 /* UserService.swift */,
+				04EA6B6221E1002300EF283C /* DeviceService.swift */,
+			);
+			path = "api requests";
+			sourceTree = "<group>";
+		};
 		047841B821D6626F00318F18 /* forgotPasswordViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -414,13 +432,10 @@
 		049E91392128ABF0007D63F2 /* services */ = {
 			isa = PBXGroup;
 			children = (
+				045847622310627B00DE8E1B /* api requests */,
 				049E913A2128AC23007D63F2 /* KeyChainService.swift */,
-				049E913C2128AD88007D63F2 /* APICLient.swift */,
-				049E913E2128ADB5007D63F2 /* AuthAdapter.swift */,
-				049E91482128B243007D63F2 /* UserService.swift */,
 				049E914F2128B81A007D63F2 /* Validators.swift */,
-				0415E02721D0791D00529FA2 /* MainRequestService.swift */,
-				04EA6B6221E1002300EF283C /* DeviceService.swift */,
+				04584763231062B100DE8E1B /* ConnectivityService.swift */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -460,6 +475,8 @@
 				04A0505C21CD41BD00D44CCC /* UITableViewCell.swift */,
 				0441706F21CD86CD001504D6 /* UIStoryboard.swift */,
 				04EA6B5A21E0FA7B00EF283C /* UIImageExtension.swift */,
+				0458476023105F7D00DE8E1B /* ObjectMapperTransformations.swift */,
+				047F3C982310635700497191 /* NotificationNameExtension.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -949,6 +966,7 @@
 				043A055621D53DFC00197B11 /* ErrorResponseObject.swift in Sources */,
 				0415E03021D16CC500529FA2 /* PasswordViewModel.swift in Sources */,
 				04EA6B5B21E0FA7B00EF283C /* UIImageExtension.swift in Sources */,
+				0458476123105F7D00DE8E1B /* ObjectMapperTransformations.swift in Sources */,
 				04A0505D21CD41BD00D44CCC /* UITableViewCell.swift in Sources */,
 				049E91542128B94F007D63F2 /* UIScrollViewExtension.swift in Sources */,
 				04AF95EA2144A4CD005C1E58 /* LoginController.swift in Sources */,
@@ -967,6 +985,7 @@
 				0415E03321D16CE000529FA2 /* EmailViewModel.swift in Sources */,
 				0415E02D21D16B2000529FA2 /* LoginViewModel.swift in Sources */,
 				043A055A21D563B300197B11 /* UserInfoService.swift in Sources */,
+				047F3C992310635700497191 /* NotificationNameExtension.swift in Sources */,
 				0441706E21CD84EE001504D6 /* Coordinator.swift in Sources */,
 				04EA6B6121E0FF0B00EF283C /* DeviceRouter.swift in Sources */,
 				0415E02221D0719A00529FA2 /* ForgotPasswordController.swift in Sources */,
@@ -980,6 +999,7 @@
 				043A054F21D4652500197B11 /* SignupService.swift in Sources */,
 				049E91522128B8E2007D63F2 /* UIViewControllerExtension.swift in Sources */,
 				04DF74302155857A0081472E /* AppButton.swift in Sources */,
+				04584764231062B100DE8E1B /* ConnectivityService.swift in Sources */,
 				0441707021CD86CD001504D6 /* UIStoryboard.swift in Sources */,
 				04EA6B6321E1002300EF283C /* DeviceService.swift in Sources */,
 			);
