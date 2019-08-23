@@ -10,17 +10,16 @@ class ForgotPasswordController: UIViewController {
     @IBOutlet weak var forgotPasswordBtn: UIButton!
     
     //internal props
-    weak var coordinator: MainCoordinator?
     let disposeBag = DisposeBag()
     var viewModel: ForgotPasswordViewModel!
     var spinnerView: UIView!
+    var finish: (() -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         spinnerView = UIView.init(frame: view.bounds)
         emailTextField.delegate = self
         
-        viewModel = ForgotPasswordViewModel(userService: UserService())
         createViewModelBinding()
     }
 }
