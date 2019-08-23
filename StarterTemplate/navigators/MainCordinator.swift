@@ -12,7 +12,15 @@ class MainCoordinator: Coordinator {
     
     func start() {
         let initialVC = UIStoryboard.viewController
-        initialVC.coordinator = self
+        
+        initialVC.login = { [weak self] in
+            self?.login()
+        }
+        
+        initialVC.signup = { [weak self] in
+            self?.signup()
+        }
+        
         navigationController.pushViewController(initialVC, animated: false)
     }
     

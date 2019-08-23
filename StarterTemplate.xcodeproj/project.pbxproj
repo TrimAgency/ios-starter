@@ -34,6 +34,7 @@
 		047841BA21D6628E00318F18 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047841B921D6628E00318F18 /* ForgotPasswordViewModel.swift */; };
 		047841BC21D6655100318F18 /* ForgotPasswordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047841BB21D6655100318F18 /* ForgotPasswordService.swift */; };
 		047841BE21D66BF800318F18 /* ForgotPasswordViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047841BD21D66BF800318F18 /* ForgotPasswordViewModelTests.swift */; };
+		0492BC2523104F5B00DC2318 /* TextContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0492BC2423104F5B00DC2318 /* TextContent.swift */; };
 		049E91242128A681007D63F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E91232128A681007D63F2 /* AppDelegate.swift */; };
 		049E91262128A681007D63F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049E91252128A681007D63F2 /* ViewController.swift */; };
 		049E91292128A681007D63F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049E91272128A681007D63F2 /* Main.storyboard */; };
@@ -120,6 +121,7 @@
 		047841B921D6628E00318F18 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
 		047841BB21D6655100318F18 /* ForgotPasswordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordService.swift; sourceTree = "<group>"; };
 		047841BD21D66BF800318F18 /* ForgotPasswordViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModelTests.swift; sourceTree = "<group>"; };
+		0492BC2423104F5B00DC2318 /* TextContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextContent.swift; sourceTree = "<group>"; };
 		049E91202128A681007D63F2 /* StarterTemplate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarterTemplate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		049E91232128A681007D63F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		049E91252128A681007D63F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -467,6 +469,7 @@
 			children = (
 				04A0505821CD397E00D44CCC /* Configuration.swift */,
 				043A055521D53DFC00197B11 /* ErrorResponseObject.swift */,
+				0492BC2423104F5B00DC2318 /* TextContent.swift */,
 			);
 			path = structs;
 			sourceTree = "<group>";
@@ -955,6 +958,7 @@
 				049E913D2128AD88007D63F2 /* APICLient.swift in Sources */,
 				049E91242128A681007D63F2 /* AppDelegate.swift in Sources */,
 				049E91492128B243007D63F2 /* UserService.swift in Sources */,
+				0492BC2523104F5B00DC2318 /* TextContent.swift in Sources */,
 				043A055221D4659E00197B11 /* SignupViewModel.swift in Sources */,
 				04EA82272130DA740011755C /* CALayerExtension.swift in Sources */,
 				047841BA21D6628E00318F18 /* ForgotPasswordViewModel.swift in Sources */,
