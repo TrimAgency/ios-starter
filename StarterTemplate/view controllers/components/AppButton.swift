@@ -1,5 +1,6 @@
 import UIKit
 
+@IBDesignable
 class AppButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -11,6 +12,10 @@ class AppButton: UIButton {
         setup()
     }
     
+    override func prepareForInterfaceBuilder() {
+        setup()
+    }
+    
     private func setup() {
         layer.cornerRadius = 24
         layer.masksToBounds = true
@@ -18,7 +23,6 @@ class AppButton: UIButton {
     }
     
     func enableButton() {
-        layer.backgroundColor = UIColor.black.cgColor
         isEnabled = true
     }
     

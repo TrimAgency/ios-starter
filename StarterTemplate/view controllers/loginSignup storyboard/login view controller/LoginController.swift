@@ -14,10 +14,12 @@ class LoginController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var signupBtn: UIButton!
     
     //internal props
-    weak var coordinator: MainCoordinator?
     let disposeBag = DisposeBag()
     var viewModel: LoginViewModel!
     var spinnerView: UIView!
+    var forgotPassword: (() -> Void)?
+    var signup: (() -> Void)?
+    var finish: (() -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,20 +27,12 @@ class LoginController: UIViewController, UITextFieldDelegate {
         emailTextField.delegate = self
         passwordTextField.delegate = self
         
-        viewModel = LoginViewModel(userService: UserService(),
-                                   userInfoService: KeychainService(),
-                                   deviceService: DeviceService())
         createViewModelBinding()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    private func goToHome() {
-        coordinator?.start()
-    }
-
 }
 
 //MARK: - textfield delegate methods
@@ -83,11 +77,11 @@ extension LoginController {
         }).disposed(by: disposeBag)
         
         forgotPasswordBtn.rx.tap.bind {
-            self.coordinator?.forgotPassword()
+            self.forgotPassword?()
         }.disposed(by: disposeBag)
         
         signupBtn.rx.tap.bind {
-            self.coordinator?.signup()
+            self.signup?()
         }.disposed(by: disposeBag)
         
         // view modal bindings
@@ -102,7 +96,7 @@ extension LoginController {
                     self.removeSpinner(spinner: self.spinnerView)
                     // this is here soley for debugging purposes
                     self.presentMessage(title: "Success", message: "You are now logged in")
-                    self.goToHome()
+                    self.finish?()
                 }
             }).disposed(by: disposeBag)
         viewModel.errorMsg

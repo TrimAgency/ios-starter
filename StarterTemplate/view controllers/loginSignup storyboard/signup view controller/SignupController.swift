@@ -12,23 +12,19 @@ class SignupController: UIViewController {
     @IBOutlet weak var loginBtn: UIButton!
     
     // internal props
-    weak var coordinator: MainCoordinator?
     let disposeBag = DisposeBag()
     var viewModel: SignupViewModel!
     var spinnerView: UIView!
+    var finish: (() -> Void)?
+    var login: (() -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         spinnerView = UIView.init(frame: view.bounds)
         emailTextField.delegate = self
         passwordTextField.delegate = self
-        viewModel = SignupViewModel(userService: UserService(),
-                                    userInfoService: KeychainService())
+        
         createViewModelBinding()
-    }
-    
-    private func goToHome() {
-        coordinator?.start()
     }
 }
 
@@ -72,7 +68,7 @@ extension SignupController {
         }).disposed(by: disposeBag)
         
         loginBtn.rx.tap.bind {
-            self.coordinator?.login()
+            self.login?()
         }.disposed(by: disposeBag)
         
         // view model bindings
@@ -92,7 +88,7 @@ extension SignupController {
                     self.removeSpinner(spinner: self.spinnerView)
                     // this is here soley for debugging purposes
                     self.presentMessage(title: "Success", message: "You are registered")
-                    self.goToHome()
+                    self.finish?()
                 }
             }).disposed(by: disposeBag)
         viewModel.errorMsg

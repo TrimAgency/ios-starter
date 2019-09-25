@@ -15,6 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         coordinator = MainCoordinator(navController: navController)
         coordinator?.start()
         
+        // sends notification when network status changes
+        ConnectivityService.shared.startListeningForNetworkChanges()
+        
         // create a basic UIWindow and activate it
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navController

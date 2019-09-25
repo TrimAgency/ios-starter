@@ -54,7 +54,7 @@ struct SignupViewModel {
                     self.userInfoService.setUserJWT(jwt: jwt)
                 }
             }, onError: { error in
-                let errorObject = error as! ErrorResponseObject
+                guard let errorObject = error as? ErrorResponseObject else { return }
                 switch errorObject.status {
                 // handle additional errors here or pass the API error directly
                 case 500:
