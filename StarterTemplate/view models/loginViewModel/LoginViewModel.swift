@@ -11,10 +11,10 @@ struct LoginViewModel {
     let emailViewModel = EmailViewModel()
     let passwordVieModel = PasswordViewModel()
     
-    let _success = BehaviorRelay<Bool>(value: false)
-    let _isLoading = BehaviorRelay<Bool>(value: false)
-    let _errorMsg = BehaviorRelay<String>(value: "")
-    let _isFormValid = BehaviorRelay<Bool>(value: false)
+    private let _success = BehaviorRelay<Bool>(value: false)
+    private let _isLoading = BehaviorRelay<Bool>(value: false)
+    private let _errorMsg = BehaviorRelay<String>(value: "")
+    private let _isFormValid = BehaviorRelay<Bool>(value: false)
     
     var success: Driver<Bool> { return _success.asDriver() }
     var isLoading: Driver<Bool> { return _isLoading.asDriver() }
