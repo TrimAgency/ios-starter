@@ -18,28 +18,8 @@ class ForgotPasswordController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         spinnerView = UIView.init(frame: view.bounds)
-        emailTextField.delegate = self
         
         createViewModelBinding()
-    }
-}
-
-extension ForgotPasswordController: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.layer.borderWidth = 1.0
-        textField.layer.borderColor = UIColor.black.cgColor
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
-        textField.layer.borderWidth = 1.0
-        textField.layer.borderColor = UIColor.lightGray.cgColor
-        viewModel.validateForm()
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        viewModel.validateForm()
-        return true
     }
 }
 
@@ -50,6 +30,31 @@ extension ForgotPasswordController {
         emailTextField.rx.text.orEmpty
             .bind(to: viewModel.emailViewModel.data)
             .disposed(by: disposeBag)
+        
+        emailTextField.rx
+            .controlEvent(.editingDidBegin)
+            .asObservable()
+            .subscribe(onNext: { [unowned self] _ in
+                self.emailTextField.layer.borderWidth = 1.0
+                self.emailTextField.layer.borderColor = UIColor.black.cgColor
+            }).disposed(by: disposeBag)
+        
+        emailTextField.rx
+            .controlEvent(.editingDidEnd)
+            .asObservable()
+            .subscribe(onNext: { [unowned self] _ in
+                self.emailTextField.layer.borderWidth = 1.0
+                self.emailTextField.layer.borderColor = UIColor.lightGray.cgColor
+                self.viewModel.validateForm()
+            }).disposed(by: disposeBag)
+        
+        emailTextField.rx
+            .controlEvent(.editingDidEndOnExit)
+            .asObservable()
+            .subscribe(onNext: { [unowned self] _ in
+                self.emailTextField.resignFirstResponder()
+                self.viewModel.validateForm()
+            }).disposed(by: disposeBag)
         
         forgotPasswordBtn.rx.tap.do(onNext: { [unowned self] in
             self.emailTextField.resignFirstResponder()
@@ -66,7 +71,7 @@ extension ForgotPasswordController {
             .disposed(by: disposeBag)
         
         viewModel.success
-            .subscribe(onNext: { [unowned self] (value: Bool) in
+            .drive(onNext: { [unowned self] (value: Bool) in
                 if value {
                     self.removeSpinner(spinner: self.spinnerView)
                     // this is here soley for debugging purposes
@@ -74,8 +79,9 @@ extension ForgotPasswordController {
                                         message: "Check your email for instructions to reset your password")
                 }
             }).disposed(by: disposeBag)
+        
         viewModel.errorMsg
-            .subscribe(onNext: { [unowned self] (value) in
+            .drive(onNext: { [unowned self] (value) in
                 if !value.isEmpty {
                     self.removeSpinner(spinner: self.spinnerView)
                     self.presentError(value)
@@ -83,16 +89,16 @@ extension ForgotPasswordController {
             }).disposed(by: disposeBag)
         
         viewModel.isFormValid
-            .subscribe(onNext: { [unowned self] (value: Bool) in
+            .drive(onNext: { [unowned self] (value: Bool) in
                 if value {
                     self.forgotPasswordBtn.enabled()
                 } else {
                     self.forgotPasswordBtn.disabled()
-                }
+        }
             }).disposed(by: disposeBag)
         
         viewModel.isLoading
-            .subscribe(onNext: { [unowned self] (value: Bool) in
+            .drive(onNext: { [unowned self] (value: Bool) in
                 if value {
                     self.displaySpinner(onView: self.view,
                                         spinnerView: self.spinnerView)
