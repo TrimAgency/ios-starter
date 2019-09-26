@@ -20,38 +20,18 @@ class LoginController: UIViewController, UITextFieldDelegate {
     var forgotPassword: (() -> Void)?
     var signup: (() -> Void)?
     var finish: (() -> Void)?
+    var textFields: [UITextField] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         spinnerView = UIView.init(frame: view.bounds)
-        emailTextField.delegate = self
-        passwordTextField.delegate = self
         
+        textFields = [emailTextField, passwordTextField]
         createViewModelBinding()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-}
-
-//MARK: - textfield delegate methods
-extension LoginController {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.layer.borderWidth = 1.0
-        textField.layer.borderColor = UIColor.black.cgColor
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
-        textField.layer.borderWidth = 1.0
-        textField.layer.borderColor = UIColor.lightGray.cgColor
-        viewModel.validateForm()
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        viewModel.validateForm()
-        return true
     }
 }
 
@@ -66,6 +46,33 @@ extension LoginController {
         passwordTextField.rx.text.orEmpty
             .bind(to: viewModel.passwordVieModel.data)
             .disposed(by: disposeBag)
+        
+        for textField in textFields {
+            textField.rx
+                .controlEvent(.editingDidBegin)
+                .asObservable()
+                .subscribe(onNext: { _ in
+                    textField.layer.borderWidth = 1.0
+                    textField.layer.borderColor = UIColor.black.cgColor
+                }).disposed(by: disposeBag)
+            
+            textField.rx
+                .controlEvent(.editingDidEnd)
+                .asObservable()
+                .subscribe(onNext: { [unowned self] _ in
+                    textField.layer.borderWidth = 1.0
+                    textField.layer.borderColor = UIColor.lightGray.cgColor
+                    self.viewModel.validateForm()
+                }).disposed(by: disposeBag)
+            
+            textField.rx
+                .controlEvent(.editingDidEndOnExit)
+                .asObservable()
+                .subscribe(onNext: { [unowned self] _ in
+                    textField.resignFirstResponder()
+                    self.viewModel.validateForm()
+                }).disposed(by: disposeBag)
+        }
         
         loginBtn.rx.tap.do(onNext: { [unowned self] in
             self.emailTextField.resignFirstResponder()
@@ -91,7 +98,7 @@ extension LoginController {
             .disposed(by: disposeBag)
         
         viewModel.success
-            .subscribe(onNext: { [unowned self] (value: Bool) in
+            .drive(onNext: { [unowned self] (value: Bool) in
                 if value {
                     self.removeSpinner(spinner: self.spinnerView)
                     // this is here soley for debugging purposes
@@ -100,7 +107,7 @@ extension LoginController {
                 }
             }).disposed(by: disposeBag)
         viewModel.errorMsg
-            .subscribe(onNext: { [unowned self] (value) in
+            .drive(onNext: { [unowned self] (value) in
                 if !value.isEmpty {
                     self.removeSpinner(spinner: self.spinnerView)
                     self.presentError(value)
@@ -108,7 +115,7 @@ extension LoginController {
             }).disposed(by: disposeBag)
         
         viewModel.isFormValid
-            .subscribe(onNext: { [unowned self] (value: Bool) in
+            .drive(onNext: { [unowned self] (value: Bool) in
                 if value {
                     self.loginBtn.enabled()
                 } else {
@@ -117,7 +124,7 @@ extension LoginController {
             }).disposed(by: disposeBag)
         
         viewModel.isLoading
-            .subscribe(onNext: { [unowned self] (value: Bool) in
+            .drive(onNext: { [unowned self] (value: Bool) in
                 if value {
                     self.displaySpinner(onView: self.view,
                                         spinnerView: self.spinnerView)

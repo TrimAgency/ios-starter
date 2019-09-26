@@ -9,10 +9,16 @@ struct ForgotPasswordViewModel {
     
     let emailViewModel = EmailViewModel()
     
-    let success = BehaviorRelay<Bool>(value: false)
-    let isLoading = BehaviorRelay<Bool>(value: false)
-    let errorMsg = BehaviorRelay<String>(value: "")
-    let isFormValid = BehaviorRelay<Bool>(value: false)
+    private let _success = BehaviorRelay<Bool>(value: false)
+    private let _isLoading = BehaviorRelay<Bool>(value: false)
+    private let _errorMsg = BehaviorRelay<String>(value: "")
+    private let _isFormValid = BehaviorRelay<Bool>(value: false)
+    
+    var success: Driver<Bool> { return _success.asDriver() }
+    var isLoading: Driver<Bool> { return _isLoading.asDriver() }
+    var errorMsg: Driver<String> { return _errorMsg.asDriver() }
+    var isFormValid: Driver<Bool> { return _isFormValid.asDriver() }
+    
     
     private let userService: ForgotPasswordService
     
@@ -26,32 +32,32 @@ struct ForgotPasswordViewModel {
     
     func validateForm() {
         if validateFields() {
-            isFormValid.accept(true)
+            _isFormValid.accept(true)
         } else {
-            isFormValid.accept(false)
+            _isFormValid.accept(false)
         }
     }
     
     func forgotPassword() {
         user.email = emailViewModel.data.value
         
-        isLoading.accept(true)
+        _isLoading.accept(true)
         
         userService.forgotPassword(with: user)
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { response in
-                self.isLoading.accept(false)
-                self.success.accept(true)
+                self._isLoading.accept(false)
+                self._success.accept(true)
             }, onError: { error in
                 guard let errorObject = error as? ErrorResponseObject else { return }
                 switch errorObject.status {
                 // handle additional errors here or pass the API error directly
                 case 404:
-                    self.errorMsg.accept("No user found matching that email")
+                    self._errorMsg.accept("No user found matching that email")
                 case 500:
-                    self.errorMsg.accept("There was an error processing your request")
+                    self._errorMsg.accept("There was an error processing your request")
                 default:
-                    self.errorMsg.accept("There was an error processing your request")
+                    self._errorMsg.accept("There was an error processing your request")
                 }
             }).disposed(by: disposebag)
     }
